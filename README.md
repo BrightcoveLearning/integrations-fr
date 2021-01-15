@@ -1,1 +1,1 @@
-# integrations-fr
+# jekyll-template
