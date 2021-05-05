@@ -1,0 +1,1486 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Ce document fournit des instructions détaillées sur l'utilisation de la cartouche personnalisée Brightcove Salesforce Commerce Cloud pour télécharger des fichiers vidéo sur le Cloud/serveur Brightcove et publier ces fichiers sur la vitrine (page de détails du produit, page de destination de catégorie, page de liste de produits, etc.) selon les besoins.">
+  
+  <title>Guide de l'utilisateur de Salesforce Commerce Cloud</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logo du produit" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sélectionner la langue</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="assistance"/> Contacter le support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">État<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="état du système"/> du système</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/ecommerce/salesforce/">Salesforce</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Guide de l'utilisateur de Salesforce Commerce Cloud</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Autres documents Brightcove</option>
+          
+            
+              <option value="https://support.brightcove.com">Accueil Documentation</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Audience de Brightcove</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Balise Brightcove</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Campagne Brightcove</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engagez</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Développement du joueur Brightcove</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">API de la plate-forme Video Cloud</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">SDK pour périphériques Video Cloud</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Intégrations et connecteurs CMS</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Informations générales sur Video Cloud</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Accueil</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Informations générales <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/cms-integration-training-videos.html">Vidéos de formation sur l'intégration CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/integrating-your-cms-video-cloud.html">Intégration de votre CMS avec Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-players-cms.html">Intégrer des joueurs Brightcove dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Intégration d'expériences dans la page dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Problèmes de connexion réseau et API de débogage</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/wordpress/index.html">WordPress <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Démarrer avec Brightcove Video Connect</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Foire aux questions</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Démarrer avec le connecteur pour Drupal</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestion de contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Intégrer du contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Installation du connecteur</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuration et utilisation</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Installation</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Mise en route du connecteur pour AEM</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">Vue d'ensemble</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sitecore/index.html">Sitecore <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Démarrer avec le connecteur pour Sitecore</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sharepoint/index.html">SharePoint <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Mise en route du Connector pour Sharepoint</a></li>
+                  
+                
+                  
+                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecommerce/index.html">eCommerce <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/salesforce/index.html">Salesforce Commerce Cloud <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud : </a>Installation</li>
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud : Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guide d'installation</a></li>
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/kollective/index.html">Kollectif <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">Guide de déploiement d'eCDN kollectif</a></li>
+                        
+                        <li><a href="/ecdn/kollective/kollective-user-guide.html">Guide de l'utilisateur d'eCDN Kollective</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/peer5/index.html">Peer5 <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Intégration de Brightcove avec Peer5</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/ramp/index.html">Rampe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Démarrer avec Ramp OmniCache et Video Cloud</a></li>
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Démarrer avec Ramp Multicast+ et Video Cloud</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/web-conferencing/index.html">Conférence Web <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conférence Zoom sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conférence Cisco Webex à Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conférence Avaya sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-inxpo-live.html">Événement INXPO sur Brightcove Live</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">Support <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Affichage de la page État du système Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacter les ventes</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Ouverture d'un dossier de support</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menu de navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenu de la page</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="ouvrir dans un nouvel onglet" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>Guide de l'utilisateur de Salesforce Commerce Cloud</h1>
+<article class="bcls-article">
+  <summary>Ce document fournit des instructions détaillées sur l'utilisation de la cartouche personnalisée Brightcove Salesforce Commerce Cloud pour télécharger des fichiers vidéo sur le Cloud/serveur Brightcove et publier ces fichiers sur la vitrine (page de détails du produit, page de destination de catégorie, page de liste de produits, etc.) selon les besoins.</summary>
+  <section class="bcls-section">
+    <h2 id="multiple_language_support">Support multilingue</h2>
+    <p>L'extension fournit la prise en charge de plusieurs langues d'interface utilisateur pour Business Manager Interface.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/org-profile.png" alt="Profil de l'organisation"/>
+      <figcaption class="bcls-caption--image">Profil de l'organisation</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/business-magager-en.png" alt="Business Manager - Anglais"/>
+      <figcaption class="bcls-caption--image">Business Manager - Anglais</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/business-magager-fr.png" alt="Directeur d'entreprise - Français"/>
+      <figcaption class="bcls-caption--image">Directeur d'entreprise - Français</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_Video">Ajouter une vidéo</h2>
+    <p>Voici les étapes à suivre pour ajouter des vidéos.</p>
+    <ol class="bcls-tasklist">
+      <li>Accéder à <strong>Outils Merchant - &gt; Brightcove - &gt; Ajouter une vidéo</strong></li>
+      <li>
+        Sélectionnez <strong>Langue</strong> dans le menu (les paramètres régionaux par défaut seront sélectionnés pour le site) :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/select-video-language.png" alt="Sélecteur de langue vidéo"/>
+          <figcaption class="bcls-caption--image">Sélecteur de langue vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Cliquez sur l'option de <strong>sélection</strong> en regard du champ Vidéo.</li>
+      <li>
+        Dans la boîte de dialogue qui s'affiche, sélectionnez le fichier vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/select-video-dialog.png" alt="Boîte de dialogue Sélectionnez la vidéo"/>
+          <figcaption class="bcls-caption--image">Boîte de dialogue Sélectionnez la vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Cliquez sur l'option <strong>Sélectionner</strong> en regard du champ Miniature, et une boîte de dialogue contextuelle similaire apparaîtra dans laquelle vous pouvez sélectionner le fichier miniature.</li>
+      <li>Cliquez sur l'option <strong>Sélectionner</strong> en regard du champ Poster, et une boîte de dialogue contextuelle similaire apparaîtra dans laquelle vous pouvez sélectionner le fichier d'affiche.</li>
+      <li>
+        Soumettre le formulaire pour amorcer le processus d'ingestion :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/submit-video-ingest-form.png" alt="Soumettre le formulaire d'enregistrement vidéo"/>
+          <figcaption class="bcls-caption--image">Soumettre le formulaire d'enregistrement vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Valider le message de réussite sur le formulaire après la soumission :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/validate-video-ingest.png" alt="Validation du succès de l'ingestion vidéo"/>
+          <figcaption class="bcls-caption--image">Validation du succès de l'ingestion vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vous pouvez vérifier que dans la vidéo a été ingérée correctement en vous connectant à Brightcove Studio et en accédant au module Media :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/view-video-studio.png" alt="Voir la vidéo dans Studio"/>
+          <figcaption class="bcls-caption--image">Voir la vidéo dans Studio</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vous pouvez également cliquer sur la vidéo pour révéler les détails afin de vérifier le code régional :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-locale-code.png" alt="Vérifier le code de paramètres régionaux"/>
+          <figcaption class="bcls-caption--image">Vérifier le code de paramètres régionaux</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Assign_Videos">Affecter des vidéos - Catégories</h2>
+    <p>Nous allons d'abord examiner les étapes pour attribuer des vidéos aux catégories.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Remarque : Les vidéos seront attribuées à la catégorie principale et les données vidéo de la catégorie principale rendront les vidéos sur vitrine.</aside>
+    <h3>Affecter des vidéos à des catégories</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Affecter une vidéo (Catégories)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-assignment.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet catégorie.</li>
+      <li>Accédez à <strong>Outils marchands - &gt; Catalogues</strong>.</li>
+      <li>Sélectionnez le catalogue.</li>
+      <li>Sélectionnez la catégorie/sous-catégorie.</li>
+      <li>Sélectionnez <strong>Modifier</strong>.</li>
+      <li>Sélectionnez <strong>Attributs de catégorie</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-category-attributes.png" alt="Attributs de catégorie Brightcove"/>
+          <figcaption class="bcls-caption--image">Attributs de catégorie Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>
+        Pour affecter des vidéos à des sous-catégories, cliquez sur la catégorie :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/select-category.png" alt="Sélectionner la catégorie"/>
+          <figcaption class="bcls-caption--image">Sélectionner la catégorie</figcaption>
+        </figure>
+      </li>
+      <li>
+        La liste des sous-catégories apparaîtra :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/subcategories-list.png" alt="Liste des sous-catégories"/>
+          <figcaption class="bcls-caption--image">Liste des sous-catégories</figcaption>
+        </figure>
+      </li>
+      <li>Suivez les étapes 3 à 16 pour affecter des vidéos à des sous-catégories.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_master_products">Attribuer des vidéos à Master Products</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Attribuer une vidéo (Produits)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-product.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-product-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-product.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-product.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots-product.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-product.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-assignment-product.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet catégorie.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_variant_products">Affecter des vidéos aux produits variants</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Attribuer une vidéo (Produits)</strong>.</li>
+      <li>Cliquez sur l' <strong>ID du produit</strong></li>
+      <li>
+        Une liste de variantes pour le masque sélectionné apparaîtra :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/product-variant-list.png" alt="Liste des variantes de produits"/>
+          <figcaption class="bcls-caption--image">Liste des variantes de produits</figcaption>
+        </figure>
+      </li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-variant.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-variant-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-variant.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-variant.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots-variant.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-variant.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-assignment-variant.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet catégorie.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>Nous pouvons obtenir une liste de toutes les <strong>variantes</strong> assignées au catalogue pour le Site.</li>
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Attribuer une vidéo (Produits)</strong>.</li>
+      <li>
+        Sélectionner des <strong>produits variants</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/variant-products.png" alt="Produits variants"/>
+          <figcaption class="bcls-caption--image">Produits variants</figcaption>
+        </figure>
+      </li>
+      <li>Suivez les étapes de 5 à 17.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_standard_products">Attribuer des vidéos aux produits standard</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Attribuer une vidéo (Produits standard)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/business-magager-en.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/business-magager-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-standard-product.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-standard-product.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-standard-product.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer la ou les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-standard-product.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-assignment-standard-product.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet produit.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes-standard-product.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_variation_groups">Affecter des vidéos aux groupes de variation</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Affecter une vidéo (Groupes de variation)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-variation-group.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-variation-group-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-variation-group.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-variation-group.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots-variation-group.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer la ou les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-standard-product.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-assignment-variation-group.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet produit.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes-standard-product.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>Nous pouvons accéder aux variantes assignées du groupe de variantes.</li>
+      <li>
+        Sélectionnez ID de groupe de variation.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/variation-group-details.png" alt="Vidéos du groupe de variation"/>
+          <figcaption class="bcls-caption--image">Vidéos du groupe de variation</figcaption>
+        </figure>
+      </li>
+      <li>
+        Une liste de variantes pour le groupe de variation sélectionné s'affiche.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/variation-group-variant-list.png" alt="Liste des variantes"/>
+          <figcaption class="bcls-caption--image">Liste des variantes</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_product_sets">Affecter des vidéos aux ensembles de produits</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Affecter une vidéo (Jeux de produits)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locales-product-sets.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locales-product-sets-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-product-set.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-product-set.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots-product-set.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer la ou les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-product-set.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify_videos_assign_product-set.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet produit.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes-standard-product.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>Nous pouvons naviguer vers les produits attribués de l'ensemble de produits.</li>
+      <li>
+        Sélectionnez l'ID du jeu de produits.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/product-set-details.png" alt="Vidéos d'ensemble de produits"/>
+          <figcaption class="bcls-caption--image">Vidéos d'ensemble de produits</figcaption>
+        </figure>
+      </li>
+      <li>
+        Une liste de produits pour l'ensemble de produits sélectionné s'affiche.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/product-list-for-product-set.png" alt="Liste des produits"/>
+          <figcaption class="bcls-caption--image">Liste des produits</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_videos_to_product_bundles">Affecter des vidéos aux offres groupées</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Affecter des vidéos (Bundles de produits)</strong>.</li>
+      <li>Les vidéos sont affectées aux paramètres régionaux.
+        <ul>
+          <li>
+            Les données relatives aux paramètres régionaux peuvent être affichées en modifiant les paramètres régionaux à partir de la liste déroulante :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-product-bundles.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/locale-menu-product-bundles-fr.png" alt="Menu Local - Français"/>
+              <figcaption class="bcls-caption--image">Menu Local - Français</figcaption>
+            </figure>
+          </li>
+          <li>
+            Les vignettes vidéo peuvent être visualisées en plaçant le curseur sur Video ID :
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/salesforce/view-video-thumbnail-product-bundles.png" alt="Voir la miniature de la vidéo"/>
+              <figcaption class="bcls-caption--image">Voir la miniature de la vidéo</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>Cliquez sur l'option <strong>Attribuer une vidéo</strong> pour affecter une ou plusieurs vidéos.</li>
+      <li>
+        Les vidéos déjà affectées apparaîtront comme sélectionnées sur la grille d'attribution de la vidéo :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-product-bundle.png" alt="Vidéos assignées"/>
+          <figcaption class="bcls-caption--image">Vidéos assignées</figcaption>
+        </figure>
+      </li>
+      <li>
+        L'emplacement attribué ne peut pas être utilisé pour les autres vidéos pour les mêmes paramètres régionaux :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/assigned-videos-slots-product-bundle.png" alt="Emplacements vidéo assignés"/>
+          <figcaption class="bcls-caption--image">Emplacements vidéo assignés</figcaption>
+        </figure>
+      </li>
+      <li>Les joueurs et les emplacements peuvent être modifiés en utilisant les déroulants correspondants disponibles dans chaque tuile vidéo.</li>
+      <li>Sélectionnez une autre vidéo avec la fente différente.</li>
+      <li>
+        Cliquez sur le bouton Enregistrer la vidéo pour attribuer la ou les vidéos sélectionnées :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/save-video-assignment-product-bundle.png" alt="Enregistrer l'affectation vidéo"/>
+          <figcaption class="bcls-caption--image">Enregistrer l'affectation vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez la vidéo assignée et l'emplacement.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify_videos_assign_product-bundle.png" alt="Vérifier l'attribution vidéo"/>
+          <figcaption class="bcls-caption--image">Vérifier l'attribution vidéo</figcaption>
+        </figure>
+      </li>
+      <li>Vérifiez les données de l'objet produit.</li>
+      <li>Accédez à <strong>Outils marchand - &gt; Produits</strong>.</li>
+      <li>Recherchez l' <strong>ID du produit</strong>.</li>
+      <li>Sélectionnez le produit.</li>
+      <li>Sélectionnez <strong>Général</strong>.</li>
+      <li>
+        Faites défiler la page jusqu'à la section Brightcove :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/brightcove-product-attributes-standard-product.png" alt="Détails du produit Section Brightcove"/>
+          <figcaption class="bcls-caption--image">Détails du produit Section Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>Nous pouvons naviguer vers les produits attribués de l'ensemble de produits.</li>
+      <li>
+        Sélectionnez l'ID du lot de produits.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/product-bundle-details.png" alt="Vidéos d'ensemble de produits"/>
+          <figcaption class="bcls-caption--image">Vidéos de l'offre groupée produit</figcaption>
+        </figure>
+      </li>
+      <li>
+        Une liste de produits pour l'ensemble de produits sélectionné s'affiche.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/product-list-for-product-set.png" alt="Liste des produits"/>
+          <figcaption class="bcls-caption--image">Liste des produits</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="embed_video">Intégrer la vidéo</h2>
+    <p>Les étapes vidéo d'intégration vous permettent d'obtenir du code pour rendre des vidéos sur n'importe quelle page ISML.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - &gt; Intégrer la vidéo</strong>.</li>
+      <li>
+        Sélectionnez la vidéo et le lecteur de votre choix, puis cliquez sur <strong>Obtenir le code</strong>:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/embed-video.png" alt="Intégrer la vidéo"/>
+          <figcaption class="bcls-caption--image">Intégrer la vidéo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Une boîte de dialogue contextuelle apparaîtra avec le code - sélectionnez le bloc de code, et il sera copié dans le presse-papiers :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/embed-video.png" alt="Code d'intégration"/>
+          <figcaption class="bcls-caption--image">Code d'intégration</figcaption>
+        </figure>
+      </li>
+      <li>Collez le code dans la ressource de contenu, l'emplacement de contenu ou dans n'importe quel modèle ISML pour rendre la vidéo.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="bulk_upload">Chargement en bloc</h2>
+    <p>Le téléchargement en bloc permet d'ingérer des vidéos en quantité groupée en téléchargeant des fichiers .csv. La tâche traitera les fichiers .csv et enregistre les vidéos sur le compte Brightcove. Un exemple de fichier BulkUpload est joint dans le fichier zip sous méta répertoire.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Notez que le <code translate="No">videofile</code>, <code translate="No">videoposter</code> et <code translate="No">videothumbnail</code> doit être disponible sur des chemins accessibles au public.</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - Chargement &gt; en bloc</strong>.</li>
+      <li>Sélectionnez le fichier .csv.</li>
+      <li>
+        Cliquez sur Soumettre :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/bulk-upload2.png" alt="Chargement groupé"/>
+          <figcaption class="bcls-caption--image">Chargement groupé</figcaption>
+        </figure>
+      </li>
+      <li>
+        Le fichier sera téléchargé dans le répertoire <strong>Temp</strong> sous le dossier <strong>BulkUpload</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/bulk-upload-folder.png" alt="Dossier de chargement group"/>
+          <figcaption class="bcls-caption--image">Dossier de chargement group</figcaption>
+        </figure>
+      </li>
+      <li>
+        Données du fichier :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/bulk-upload-file-data.png" alt="Données de fichier"/>
+          <figcaption class="bcls-caption--image">Données de fichier</figcaption>
+        </figure>
+      </li>
+      <li>Accédez à <strong>Administration - &gt; Jobs</strong>.</li>
+      <li>Sélectionnez Travail de <strong>chargement en bloc</strong> et cliquez sur <strong>Exécuter</strong>.</li>
+      <li>
+        Vérifiez le statut de fin de tâche.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-bulk-upload-completion.png" alt="Vérifier l'achèvement du chargement groupé"/>
+          <figcaption class="bcls-caption--image">Vérifier l'achèvement du chargement groupé</figcaption>
+        </figure>
+      </li>
+      <li>
+        Vérifiez l'objet vidéo dans le compte Brightcove.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/verify-video-object-brightcove.png" alt="Vérifier l'objet vidéo dans Brightcove"/>
+          <figcaption class="bcls-caption--image">Vérifier l'objet vidéo dans Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>
+        Le fichier traité par le travail <strong>Bulk-Upload_Processed</strong> sera déplacé dans le dossier <strong>BulkUpload_Processed</strong> sous le répertoire <strong>Temp</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/processed-bulk-upload-file.png" alt="Fichier de chargement groupé traité"/>
+          <figcaption class="bcls-caption--image">Fichier de chargement groupé traité</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="bulk_assign">Assigner en bloc</h2>
+    <p>L'affectation en bloc permet d'attribuer des vidéos à des catégories, sous-catégories et produits en quantité groupée en téléchargeant des fichiers .csv. L'affectation en bloc permet d'attribuer des vidéos à des catégories, sous-catégories et produits en quantité groupée en téléchargeant des fichiers .csv. Les exemples de fichiers BulkAssigner pour la catégorie et le produit sont joints dans le fichier zip sous le <strong>méta</strong> répertoire.</p>
+    <p>La tâche traitera (s) fichier (s) csv (s) pour la catégorie et le produit sous lors de la même exécution. Le travail vérifie les répertoires pour le produit et la catégorie, et traite le (s) fichier (s).</p>
+    <aside class="bcls-aside--information"> Remarque : Si les paramètres régionaux fournis dans le fichier csv n'est pas disponible pour le site, les vidéos seront affectées aux paramètres régionaux par défaut du site.</aside>
+    <p>Les données du fichier de catégorie ressemblent à ceci :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/bulkassigndatasample-cateory.png" alt="Exemple de données assigné en bloc - Catégorie"/>
+      <figcaption class="bcls-caption--image">Exemple de données assigné en bloc - Catégorie</figcaption>
+    </figure>
+    <p>Les données du fichier produit ressemblent à ceci :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/" alt="Exemple de données assigné en bloc - Produit"/>
+      <figcaption class="bcls-caption--image">Exemple de données assigné en bloc - Produit</figcaption>
+    </figure>
+    <p>La tâche traitera (s) fichier (s) csv (s) pour la catégorie et le produit sous la même exécution. Le travail vérifie les répertoires pour le produit et la catégorie et traite le (s) fichier (s).</p>
+    <h3>Catégorie</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - Affecter &gt; en bloc</strong>.</li>
+      <li>Sélectionnez <strong>Catégorie</strong>.</li>
+      <li>Sélectionnez le fichier .csv.</li>
+      <li>
+        Cliquez sur <strong>Soumettre</strong>:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/submit-csv-file-category.png" alt="Envoyer un fichier CSV - Catégorie"/>
+          <figcaption class="bcls-caption--image">Envoyer un fichier CSV - Catégorie</figcaption>
+        </figure>
+      </li>
+      <li>
+        Le fichier sera téléchargé dans le répertoire <strong>Temp</strong> sous le dossier <strong>{SITE-ID} /bulkAssignCategory</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/bulkassigncategory-folder.png" alt="Dossier bulkassigncategory"/>
+          <figcaption class="bcls-caption--image">Dossier bulkassigncategory</figcaption>
+        </figure></li>
+        <li>Accédez à <strong>Administration - &gt; Jobs</strong>.</li>
+        <li>Sélectionnez le travail d' <strong>affectation en bloc</strong> et cliquez sur <strong>Exécuter</strong>.</li>
+        <li>
+          Vérifiez le statut de fin de tâche.
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/salesforce/Job_Completion_Status_Bulk_Assign_Category.png" alt="Statut de fin d'emploi - Affectation en bloc catégorie"/>
+            <figcaption class="bcls-caption--image">Statut de fin d'emploi - Affectation en bloc catégorie</figcaption>
+          </figure>
+        </li>
+        <li>
+          Vérifiez la ou les vidéos assignées.
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/salesforce/verify_videos_assign_category.png" alt="Vérifier l'affectation des vidéos - Catégorie"/>
+            <figcaption class="bcls-caption--image">Vérifier l'affectation des vidéos - Catégorie</figcaption>
+          </figure>
+        </li>
+        <li>Le fichier traité par le travail Bulk-Assigner sera déplacé vers le dossier <strong>BulkAssignCategory_Processed</strong> sous le répertoire <strong>Temp</strong> .</li>
+    </ol>
+    <h3>Produit</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>Accédez à <strong>Outils Merchant - &gt; Brightcove - Affecter &gt; en bloc</strong>.</li>
+      <li>Sélectionnez <strong>Produit</strong>.</li>
+      <li>Sélectionnez le fichier .csv.</li>
+      <li>
+        Cliquez sur <strong>Soumettre</strong>:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/submitbulkassignproduct.png" alt="Envoyer un fichier CSV - Produit"/>
+          <figcaption class="bcls-caption--image">Envoyer un fichier CSV - Produit</figcaption>
+        </figure>
+      </li>
+      <li>
+        Le fichier sera téléchargé dans le répertoire <strong>Temp</strong> sous le dossier <strong>{SITE-ID} /bulkAssignProduct</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/salesforce/bulkassignProduct-folder.png" alt="Dossier BulkAssignProduct"/>
+          <figcaption class="bcls-caption--image">Dossier BulkAssignProduct</figcaption>
+        </figure></li>
+        <li>Accédez à <strong>Administration - &gt; Jobs</strong>.</li>
+        <li>Sélectionnez le travail d' <strong>affectation en bloc</strong> et cliquez sur <strong>Exécuter</strong>.</li>
+        <li>
+          Vérifiez le statut de fin de tâche.
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/salesforce/Job_Completion_Status_Bulk_Assign_Product.png" alt="Statut de fin de tâche - Affecter un produit en bloc"/>
+            <figcaption class="bcls-caption--image">Statut de fin de tâche - Affecter un produit en bloc</figcaption>
+          </figure>
+        </li>
+        <li>
+          Vérifiez la ou les vidéos assignées.
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/salesforce/verify_videos_assign_Product.png" alt="Vérifier l'attribution des vidéos - Produit"/>
+            <figcaption class="bcls-caption--image">Vérifier l'attribution des vidéos - Produit</figcaption>
+          </figure>
+        </li>
+        <li>Le fichier traité par le travail Bulk-Assigner sera déplacé vers le dossier <strong>BulkAssignProduct_Processed</strong> sous le répertoire <strong>Temp</strong> .</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="sample_implementation">Exemples d'implémentations</h2>
+    <p>Voici quelques pages pour un exemple d'implémentation des vidéos Brightcove.</p>
+    <h3>Architecture de référence Storefront (SFRA)</h3>
+    <h4>Catégorie (catlanding, SearchResultsNoDecorator)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/category_sample.png" alt="Exemple de catégorie"/>
+      <figcaption class="bcls-caption--image">Exemple de catégorie</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/category_sample2.png" alt="Détails de l'exemple de catégorie"/>
+      <figcaption class="bcls-caption--image">Détails de l'exemple de catégorie</figcaption>
+    </figure>
+    <h4>Page produit Produits maître/variants (ProductDetails)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample1.png" alt="Échantillon produit 1"/>
+      <figcaption class="bcls-caption--image">Échantillon produit 1</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample2.png" alt="Exemple de produit 2"/>
+      <figcaption class="bcls-caption--image">Exemple de produit 2</figcaption>
+    </figure>
+    <h3>Page produit - Produits standard (détails du produit)</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/standard-products-sample-1.png" alt="Produits standard"/>
+      <figcaption class="bcls-caption--image">Produits standard</figcaption>
+    </figure>
+    <h3>Page produit - Groupe de variation (détails du produit)</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/variation-group-sample.png" alt="Groupe de variation"/>
+      <figcaption class="bcls-caption--image">Groupe de variation</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/variation-group-sample-2.png" alt="Groupe de variation"/>
+      <figcaption class="bcls-caption--image">Groupe de variation</figcaption>
+    </figure>
+    <h3>Page produit - Ensemble de produits (détails de l'ensemble)</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-set-sample.png" alt="Détails de l'ensemble de produits"/>
+      <figcaption class="bcls-caption--image">Détails de l'ensemble de produits</figcaption>
+    </figure>
+    <h3>Page produit - Offre groupée (détails du lot)</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-bundle-sample.png" alt="Détails de l'ensemble de produits"/>
+      <figcaption class="bcls-caption--image">Détails de l'ensemble de produits</figcaption>
+    </figure>
+    <h3>Architecture SiteGenesis</h3>
+    <h4>Page de catégorie (catlanding, catégorieproducthits)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/category-sample3.png" alt="Page de destination de la catégorie"/>
+      <figcaption class="bcls-caption--image">Page de destination de la catégorie</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/category-sample4.png" alt="Page Détail de la catégorie"/>
+      <figcaption class="bcls-caption--image">Page Détail de la catégorie</figcaption>
+    </figure>
+    <h4>Page produit - Maître/Variant (productcontent, producttopcontent)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample3.png" alt="Exemple de page produit"/>
+      <figcaption class="bcls-caption--image">Exemple de page produit</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample4.png" alt="Exemple de page produit"/>
+      <figcaption class="bcls-caption--image">Exemple de page produit</figcaption>
+    </figure>
+    <h4>Page produit - Produits standard (productcontent, producttopcontent)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample5.png" alt=" Exemple de page produit standard"/>
+      <figcaption class="bcls-caption--image">Exemple de page produit standard</figcaption>
+    </figure>
+    <h4>Page produit - Groupe de variation (productcontent, producttopcontent)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample6.png" alt="Exemple de page Groupe de variations"/>
+      <figcaption class="bcls-caption--image">Exemple de page Groupe de variations</figcaption>
+    </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample7.png" alt="Exemple de page Groupe de variations"/>
+      <figcaption class="bcls-caption--image">Exemple de page Groupe de variations</figcaption>
+    </figure>
+    <h4>Page produit - Ensemble de produits (ProductTopContentps)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample8.png" alt="Exemple de page Jeu de produits"/>
+      <figcaption class="bcls-caption--image">Exemple de page Jeu de produits</figcaption>
+    </figure>
+    <h4>Page produit - Offre groupée (ProductTopContentps)</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/salesforce/product-sample9.png" alt="Échantillon d'ensemble de produits"/>
+      <figcaption class="bcls-caption--image">Échantillon d'ensemble de produits</figcaption>
+    </figure>
+  </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenu de la page</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Assistance Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">État du système</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contacter le support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formation</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Cours en ligne</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">S' inscrire à un cours</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Université de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactez-nous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove, Inc. Tous droits réservés.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Confidentialité</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Termes et conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

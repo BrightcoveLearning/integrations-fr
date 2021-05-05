@@ -1,0 +1,1280 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Mise en route avec Brightcove Video Connect pour SharePoint</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logo du produit" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sélectionner la langue</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="assistance"/> Contacter le support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">État<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="état du système"/> du système</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/sharepoint/">SharePoint</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Mise en route avec Brightcove Video Connect pour SharePoint</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Autres documents Brightcove</option>
+          
+            
+              <option value="https://support.brightcove.com">Accueil Documentation</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Audience de Brightcove</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Balise Brightcove</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Campagne Brightcove</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engagez</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Développement du joueur Brightcove</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">API de la plate-forme Video Cloud</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">SDK pour périphériques Video Cloud</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Intégrations et connecteurs CMS</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Informations générales sur Video Cloud</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Accueil</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Informations générales <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/cms-integration-training-videos.html">Vidéos de formation sur l'intégration CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/integrating-your-cms-video-cloud.html">Intégration de votre CMS avec Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-players-cms.html">Intégrer des joueurs Brightcove dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Intégration d'expériences dans la page dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Problèmes de connexion réseau et API de débogage</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/wordpress/index.html">WordPress <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Démarrer avec Brightcove Video Connect</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Foire aux questions</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Démarrer avec le connecteur pour Drupal</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestion de contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Intégrer du contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Installation du connecteur</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuration et utilisation</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Installation</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Mise en route du connecteur pour AEM</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">Vue d'ensemble</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sitecore/index.html">Sitecore <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Démarrer avec le connecteur pour Sitecore</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sharepoint/index.html">SharePoint <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Mise en route du Connector pour Sharepoint</a></li>
+                  
+                
+                  
+                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecommerce/index.html">eCommerce <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/salesforce/index.html">Salesforce Commerce Cloud <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud : </a>Installation</li>
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud : Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guide d'installation</a></li>
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/kollective/index.html">Kollectif <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">Guide de déploiement d'eCDN kollectif</a></li>
+                        
+                        <li><a href="/ecdn/kollective/kollective-user-guide.html">Guide de l'utilisateur d'eCDN Kollective</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/peer5/index.html">Peer5 <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Intégration de Brightcove avec Peer5</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/ramp/index.html">Rampe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Démarrer avec Ramp OmniCache et Video Cloud</a></li>
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Démarrer avec Ramp Multicast+ et Video Cloud</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/web-conferencing/index.html">Conférence Web <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conférence Zoom sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conférence Cisco Webex à Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conférence Avaya sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-inxpo-live.html">Événement INXPO sur Brightcove Live</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">Support <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Affichage de la page État du système Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacter les ventes</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Ouverture d'un dossier de support</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menu de navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenu de la page</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="ouvrir dans un nouvel onglet" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+<h1>Mise en route avec Brightcove Video Connect pour SharePoint</h1>
+<summary>Cette rubrique fournit une vue d'ensemble de Brightcove Video Connect pour SharePoint.</summary>
+<section class="bcls-section">
+  <h2 id="introduction">Introduction</h2>
+  <table class="bcls-table">
+    <thead class="bcls-table__head">
+      <tr>
+        <th scope="col">Version</th>
+        <th scope="col">Documentation</th>
+        <th scope="col">Télécharger</th>
+        <th scope="col">Notes de compatibilité</th>
+      </tr>
+    </thead>
+    <tbody class="bcls-table__body">
+      <tr>
+        <td>4.1.2.0</td>
+        <td><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Documentation</a></td>
+        <td><a href="https://github.com/BrightcoveOS/SharePoint-Connector/releases/tag/4.1.2.0">Plug-in et source</a> *</td>
+        <td><p>SharePoint 2016/2019&nbsp;sur site, SharePoint 2016/2019 Online (Office 365), CMS et API DI Brightcove, lecteur HTML5 Brightcove</p>
+          <ul>
+            <li>Correction : problème avec Expériences&nbsp;dans certaines situations.</li>
+          </ul></td>
+      </tr>
+      <tr>
+        <td>4.0.1.0</td>
+        <td><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Documentation</a></td>
+        <td><a href="https://github.com/BrightcoveOS/SharePoint-Connector/releases/tag/v4.0.1.0">Plug-in et source</a> *</td>
+        <td><p>SharePoint 2013/2016 sur site, SharePoint 2016 Online (Office 365), CMS et API DI Brightcove, lecteur HTML5 Brightcove</p>
+          <ul>
+            <li>Nouvel AppPart disponible pour intégrer des vidéos Brightcove, des playlists et des expériences dans la page. Peut être utilisé pour intégrer les joueurs Brightcove sur les pages Expérience Modern au lieu d'utiliser l'icône d'intégration native.</li>
+            <li>Un serveur proxy pour les API Brightcove n'est plus nécessaire, ce qui simplifie le processus d'installation.</li>
+          </ul></td>
+      </tr>
+      <tr>
+        <td>3.0.2.0</td>
+        <td>Passer à la version 4.0.x.x</td>
+        <td>EOL</td>
+        <td><p>SharePoint 2013/2016 sur site, SharePoint 2016 Online (Office 365), CMS et API DI Brightcove, lecteur HTML5 Brightcove</p>
+          <ul>
+            <li>Prend en charge la publication de&nbsp;<a rel="nofollow" href="https://www.brightcove.com/en/blog/2017/05/think-outside-box-brightcoves-new-page-experiences-video">Expériences sur la page</a>&nbsp;portails vidéo</li>
+            <li>Utilise l'Ingestion dynamique basée sur Push ; prend désormais en charge le téléchargement de vidéos à partir du serveur SharePoint derrière un pare-feu</li>
+            <li>Utilise le profil d'ingest par défaut dans Brightcove au lieu du profil codé en dur</li>
+            <li>UX amélioré</li>
+            <li>Processus d'installation simplifié</li>
+          </ul></td>
+      </tr>
+      <tr>
+        <td>2.0.2.66</td>
+        <td><a href="#contents">Docteur de formation</a></td>
+        <td>EOL</td>
+        <td>SharePoint 2013/2016 sur site, SharePoint 2016 Online (Office 365), CMS et API DI Brightcove, lecteur HTML5 Brightcove</td>
+      </tr>
+      <tr>
+        <td>1.1.2.8</td>
+        <td><a href="https://files.brightcove.com/bc-sharepoint-training.pdf">Docteur de formation</a></td>
+        <td>EOL</td>
+        <td>SharePoint 2013 sur site uniquement, API multimédia Brightcove, Brightcove hérité Flash SmartPlayer&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <p>* © 2019&nbsp;Brightcove</p>
+    <p>Licence sous licence Apache, Version 2.0 (la « Licence ») ; vous ne pouvez pas utiliser ce fichier sauf en conformité avec la Licence. Vous pouvez obtenir une copie de la Licence à l'adresse <a style="box-sizing: border-box; background-color: transparent; color: rgb(3, 102, 214);" href="https://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>. &nbsp;Sauf si la loi applicable l'exige ou l'accord écrit, les logiciels distribués en vertu de la Licence sont distribués « EN L'ÉTAT », SANS GARANTIE NI CONDITIONS D'AUCUNE SORTE, expresse ou implicite. Consultez la Licence pour connaître la langue spécifique régissant les autorisations et les limitations sous licence.</p>
+  </div>
+  <p>Pour obtenir de l'aide sur ce connecteur, veuillez remplir cette <a href="https://files.brightcove.com/BrightcoveConnectforSharePointSupportWorksheet.docx">feuille de travail</a> et l'inclure avec un ticket d'assistance au service clientèle de Brightcove.</p>
+</section>
+<section class="bcls-section">
+  <h2 id="contents">Table des matières</h2>
+  <ul>
+    <li><a href="#installing">Installation de Brightcove Video Connect pour SharePoint</a></li>
+    <li><a href="#launching">Lancement de Brightcove Video Connect</a></li>
+    <li><a href="#linking">Liaison aux comptes Video Cloud</a></li>
+    <li><a href="#players">Définir des lecteurs Video Cloud</a></li>
+    <li><a href="#custfields">Définir des champs personnalisés</a></li>
+    <li><a href="#dropboxs3">Liaison vers Dropbox ou AWS S3 pour le stockage de téléchargement temporaire</a></li>
+    <li><a href="#permissions">Définition des autorisations SharePoint</a></li>
+    <li><a href="#videos">Ajout, importation, modification et suppression de vidéos</a></li>
+    <li><a href="#search">Recherche de vidéos</a></li>
+    <li><a href="#playlists">Ajout, importation et suppression de listes de lecture</a></li>
+    <li><a href="#embedding">Ajout de vidéo à un site SharePoint</a></li>
+  </ul>
+</section>
+<section class="bcls-section">
+  <h2 id="installing">Installation de Brightcove Video Connect pour SharePoint</h2>
+  <p>Avant de commencer l'installation, consultez les informations suivantes sur les conditions préalables et les autorisations :</p>
+  <ul>
+    <li>Avant qu'un utilisateur puisse ajouter une application pour SharePoint, un membre du groupe Administrateurs de batterie doit configurer l'environnement pour prendre en charge les applications pour SharePoint. Pour plus d'informations, consultez <a href="https://technet.microsoft.com/en-us/library/fp161236(v=office.15).aspx">Configurer un environnement pour les applications pour SharePoint 2013</a> ou <a href="https://technet.microsoft.com/en-us/library/fp161236(v=office.16).aspx">SharePoint 2016</a>&nbsp;ou&nbsp;<a href="https://technet.microsoft.com/en-us/library/fp161236(v=office.16).aspx">SharePoint 2019</a>.</li>
+    <li>Un utilisateur doit disposer des autorisations <strong>Gérer le site Web</strong> et <strong>Créer des sous-sites</strong> pour ajouter une application pour SharePoint. Par défaut, ces autorisations sont disponibles uniquement pour les utilisateurs disposant du niveau d'autorisation Contrôle total ou qui font partie du groupe Propriétaire du site.</li>
+    <li>Lorsqu'un utilisateur ajoute une application pour SharePoint, l'application demande les autorisations dont il a besoin pour fonctionner (par exemple, l'accès à la recherche ou pour créer une liste). Les utilisateurs qui ne disposent pas de ces autorisations sont informés qu'ils ne disposent pas des autorisations suffisantes et que l'application ne peut pas être ajoutée. L'utilisateur peut contacter un administrateur de site ou de batterie de serveurs pour voir si l'administrateur peut ajouter l'application.</li>
+    <li>Un utilisateur connecté à un site en tant que compte système ne peut pas installer une application. Le compte système ne peut pas importer de licences d'application car cela peut entraîner des problèmes de performances.</li>
+  </ul>
+  <h3>Ajout de l'application Brightcove Video Connect au catalogue d'applications</h3>
+  <div><!--
+            <iframe class="training-video-player" src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="360" width="640"></iframe>
+            --></div>
+  <h4>Configuration du catalogue d'applications</h4>
+  <p>Pour installer le connecteur Brightcove, la première étape consiste à configurer le catalogue d'applications dans SharePoint. Utilisez les références ci-dessous pour terminer cette étape.</p>
+  <ul>
+    <li><a href="https://technet.microsoft.com/en-us/library/fp161234(v=office.15).aspx">Gérer le catalogue d'applications dans SharePoint 2013</a></li>
+    <li><a href="https://technet.microsoft.com/en-us/library/fp161234(v=office.16).aspx">Gérer le catalogue d'applications dans SharePoint 2016</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/SharePoint/administration/manage-the-app-catalog">Gérer le catalogue d'applications dans SharePoint 2019</a></li>
+  </ul>
+  <h4>Ajout de l'application Brightcove Video Connect au catalogue</h4>
+  <p>Une fois le catalogue d'applications configuré, suivez les étapes ci-dessous :</p>
+  <ol class="bcls-tasklist">
+    <li>Vérifiez que le compte d'utilisateur qui exécute cette procédure est membre du groupe Propriétaires de site ou concepteurs du catalogue d'applications.</li>
+    <li>Sur le site du catalogue d'applications, cliquez sur la liste <strong>Applications pour SharePoint</strong> .</li>
+    <li>Dans la page <strong>Applications pour SharePoint</strong> , cliquez sur <strong>nouvel élément</strong>.</li>
+    <li>Dans la zone <strong>Choisir un fichier</strong> , cliquez sur <strong>Parcourir</strong> , puis recherchez le dossier contenant le fichier <i>BrightCoveConnectorApp</i> .</li>
+    <li>Sélectionnez l'application, puis cliquez sur <strong>Ouvrir</strong>.</li>
+    <li>Cliquez sur <strong>OK</strong> pour télécharger l'application.</li>
+    <li>Dans la zone Détails de l'article, indiquez le nom, le titre, la description courte, l'URL de l'icône et d'autres paramètres de l'application. Assurez-vous que la case à cocher Activé est <strong>activée</strong> pour que les utilisateurs puissent voir l'application sur leurs sites. Vous pouvez activer la case à cocher En vedette pour répertorier l'application dans la vue Contenu en <strong>vedette</strong> du catalogue d'applications.</li>
+    <li>Cliquez sur <strong>Save</strong>.</li>
+  </ol>
+  <h4>Installation de l'application Brightcove Video Connect dans un site</h4>
+  <div><!--
+            <iframe class="training-video-player" src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="360" width="640"></iframe>
+            --></div>
+  <p>Suivez les étapes ci-dessous pour installer le connecteur Brightcove dans un site :</p>
+  <ol class="bcls-tasklist">
+    <li>Vérifiez que le compte d'utilisateur qui exécute cette procédure est membre du groupe Propriétaires de site.</li>
+    <li>L'application peut être ajoutée à un site de l'une des deux manières suivantes :
+      <ol class="bcls-tasklist">
+        <li>Sur n'importe quelle page, dans le menu <strong>Paramètres</strong> , sélectionnez <strong>Ajouter une option d'application</strong> .<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-app-add-an-app.png"/></li>
+        <li>Dans <strong>Contenu du site</strong> à l'aide de l'option <strong>Ajouter une application</strong> .<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-app-add-an-app-icon.png"/></li>
+      </ol>
+    </li>
+    <li>Ensuite, cliquez sur « De votre organisation », puis sur l'application <strong>BrightCoveConnector</strong> .<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-app-brightcove-connector-icon.png"/></li>
+    <li>Dans la boîte de dialogue Accorder l'autorisation, cliquez sur « Faire confiance ».<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-app-trust-it.png"/></li>
+    <li>À ce stade, l'application <strong>BrightCoveConnector</strong> pour SharePoint est ajoutée et apparaît dans la section Applications de votre liste Contenu du site. Il est maintenant disponible pour une utilisation sur le Site.</li>
+  </ol>
+  <br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-app-complete.png"/>
+  <h4>Provisionnement des listes par défaut pour l'application Brightcove Video Connect</h4>
+  <p>Avant d'utiliser le connecteur Brightcove, certaines listes requises doivent être provisionnées en procédant comme suit :</p>
+  <ul>
+    <li>Lorsque l'application est instanciée pour la première fois, ou si les listes ne sont pas présentes sur le Site local, l'utilisateur recevra jusqu'à 3 options pour permettre le provisionnement des listes à l'intérieur du Site.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-lists-create.png"/></li>
+    <br/>
+    <li>Lorsque vous cliquez dessus, chaque bouton affiche un message à l'effet :<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-lists-message.png"/></li>
+    <li>Lorsque vous cliquez sur « Créer une liste de paramètres », en plus de créer la liste des paramètres Brightcove, une invite de modification de cette liste s'affiche pour s'assurer que l'URL proxy requise pour la prise en charge de l'API Brightcove est configurée.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-lists-videos.png"/></li>
+    <li>Cliquez sur ce lien pour ouvrir la liste des paramètres de Brightcove pour modifier immédiatement les informations d'accès au serveur proxy. Le titre doit être défini sur « Proxy ». ProxyURL est spécifique à l'emplacement du serveur proxy que vous utiliserez pour accéder à l'API Brightcove.  <a href="#installingproxy">Pour plus de détails sur l'utilisation du serveur proxy, reportez-vous à la section Utilisation du serveur proxy pour la communication de l'API Brightcove</a> .<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-lists-settings-proxy.png"/></li>
+    <li>La mise en service de liste créera les listes suivantes dans le site :
+      <ul>
+        <li>Comptes : liste personnalisée représentant les objets Compte.</li>
+        <li>Vidéos - Une liste personnalisée représentant les objets vidéo.</li>
+        <li>Paramètres - Liste pour stocker les détails du serveur proxy.</li>
+      </ul>
+      <br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-install-lists-complete.png"/></li>
+  </ul>
+  <h3 id="sharepointpermissions">Configuration des autorisations SharePoint</h3>
+  <p>L'un des avantages de l'intégration directe du Connector dans SharePoint est la possibilité d'exploiter son modèle d'autorisation. L'administrateur SharePoint peut contrôler quels utilisateurs ont accès aux différentes fonctions du Connecteur. Voici l'ensemble par défaut des groupes utilisés par le Connecteur pour contrôler l'accès aux sections du Connecteur.</p>
+  <table class="bcls-table">
+    <thead class="bcls-table__head">
+      <tr>
+        <th>&nbsp;</th>
+        <th><strong>BCADmin</strong></th>
+        <th><strong>BCVideoAjouter</strong></th>
+        <th><strong>Utilisateur dans l'un ni l'autre groupe</strong></th>
+      </tr>
+    </thead>
+    <tbody class="bcls-table__body">
+      <tr>
+        <td>Accueil</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <td>Gestion des comptes</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Ajouter/Modifier une vidéo</td>
+        <td>X</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Gérer les vidéos</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <td>Gérer les sélections</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>NOTE</p>
+  <ul>
+    <li>Les groupes doivent être configurés par l'administrateur SharePoint et ne sont pas créés automatiquement par le Connector lors de l'installation.</li>
+    <li>Les utilisateurs doivent avoir au moins accès au site sur lequel le connecteur est installé afin d'accéder à l'application. En accédant au Site dans lequel l'application est installée, les utilisateurs peuvent voir les sections Accueil, Gérer les vidéos et Gérer les listes de lecture du Connecteur.</li>
+    <li>En plus des groupes ci-dessous, chaque compte est configuré avec un groupe d'auteur et de vue expliqués plus loin.</li>
+  </ul>
+</section>
+<section class="bcls-section">
+  <h2>Installation du package de solution Player pour SharePoint Online</h2>
+  <p>Le package de solutions Brightcove Player inclus dans le package Brightcove Video Connect permet à l'utilisateur d'intégrer des lecteurs vidéo Brightcove sur les pages du site SharePoint. Le package de solutions Brightcove Player utilise des contrôles SharePoint disponibles qui sont compatibles avec SharePoint Online et SharePoint Server et peuvent donc être utilisés avec les deux. Une solution sandbox Player WebPart pour l'intégration de vidéos est également disponible dans le package Brightcove Video Connect, mais ne peut être utilisée qu'avec SharePoint Server sur site car SharePoint Online et SharePoint Server hébergés par Microsoft ont des restrictions de sécurité interdisant les solutions sandbox ; cette solution est&nbsp;décrit dans la section suivante.</p>
+  <p>Pour intégrer un lecteur Brightcove dans SharePoint Online, le package de solution décrit ici permet à l'utilisateur de choisir un lecteur vidéo ou une liste de lecture, puis le code d'intégration du&nbsp;lecteur est généré pour permettre à l'utilisateur de copier/coller dans la boîte de dialogue Code d'intégration SharePoint.</p>
+  <p>REMARQUE - Cette section nécessite le fichier de solution BrightCovePlayer.wsp.</p>
+  <ol class="bcls-tasklist">
+    <li>Dans le site racine de la collection de sites, où l'application Brightcove est installée, accédez à Paramètres du &gt; site - Administrations de collection de sites - Sécurité des champs &gt; HTML.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-html-field-security.png"/></li>
+    <li>Ajouter players.brightcove.net en tant que domaine iframe autorisé<br/> <img class="bcls-image--no-border" alt="" width="800" src="/assets/images/sharepoint/node16612-embed-player-add-domain.png"/></li>
+    <li>Dans le site racine de la collection Site, où l'application Brightcove est installée, accédez à Paramètres du site - Galeries &gt; Web Designer - &gt; Solutions.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-solution-gallery.png"/></li>
+    <li>Téléchargez le fichier « BrightCovePlayer.wsp » dans la Galerie de solutions et activez le fichier.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-brightcoveplayer-wsp.png"/></li>
+    <li>Accédez à Paramètres du site - Actions &gt; du site - &gt; Gérer les fonctionnalités du site.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-manage-site-features.png"/></li>
+    <li>Activez la fonctionnalité « Brightcove Player ».<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-activate-brightcove-player.png"/></li>
+    <li>Vérifiez que la bibliothèque de documents BrightCoveConnector Resources a été créée lors de l'installation.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-check-brightcoveconnectorresources.png"/></li>
+    <li>Si ce n'est pas le cas, créez une bibliothèque de documents appelée BrightCoveConnector Resources<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-add-brightcoveconnectorresources.png"/></li>
+    <li>et téléchargez BrightcovePlayer.css et BrightcovePlayer.js dans cette bibliothèque de documents.<br/> <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-copy-brightcoveconnectorresources.png"/></li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h2 id="Installing_Player_Web_Part_For_SharePoint_On-Premise">Installation du composant WebPart Player pour SharePoint sur site</h2>
+  <p>Si vous utilisez le Connector avec SharePoint Server installé sur site, vous pouvez installer le package de solution de lecteur comme décrit dans la section précédente ou vous pouvez installer la solution sandbox de composants WebPart Player décrite dans cette section. &nbsp;Cette solution sandbox ne fonctionnera pas avec SharePoint Online ou SharePoint Server hébergé par Microsoft en raison de restrictions de sécurité. &nbsp;Le composant WebPart Player offre un moyen légèrement plus rationalisé d'ajouter des lecteurs à un site SharePoint car il n'exige pas de l'utilisateur de copier/coller du code d'intégration.</p>
+  <p>REMARQUE - Cette section nécessite le fichier de solution BrightCoveVideoCloudPlayer.wsp.</p>
+  <ol bcls-tasklist="">
+    <li>Ajoutez la solution à SharePoint à partir de la ligne de commande en entrant :
+      <pre>
+        stsadm -o addsolution -nom de fichier BrightCoveVideoCloudPlayer.wsp</pre>
+    </li>
+    <li>Déployez la solution en naviguant avec votre navigateur vers « Administration centrale - Paramètres &gt; système - &gt; Farm Management - &gt; Gérer les solutions de batterie » :<br/> <img class="bcls-image--no-border" alt="" width="800" src="/assets/images/sharepoint/node16612-embed-player-webpart-system-settings.png"/></li>
+    <li>Vous devriez maintenant voir BrightCoveVideoCloudPlayer.wsp dans le magasin de solutions de la batterie. Cliquez sur « BrightCoveVideoCloudPlayer.wsp », puis cliquez sur « Déployer la solution » pour déployer la solution :<br/> <img class="bcls-image--no-border" alt="" width="800" src="/assets/images/sharepoint/node16612-embed-player-webpart-solution-properties.png"/></li>
+    <br/>
+    <li>Procédez à l'activation de la fonctionnalité en cliquant sur « Actions du site/Paramètres du &gt; site - Administration de la collection de sites - Fonctionnalités de la collection de &gt; sites » :<br/> <img class="bcls-image--no-border" alt="" width="800" src="/assets/images/sharepoint/node16612-embed-player-webpart-site-settings.png"/></li>
+    <br/>
+    <li>Activez la fonction « AE Ssome WebPart » :<br/> <img class="bcls-image--no-border" alt="" width="200" src="/assets/images/sharepoint/node16612-embed-player-webpart-activate.png"/></li>
+  </ol>
+</section>
+<p>&lt; class="bcls-section"&gt;</p>
+<h2 id="installingproxy">Installation du serveur proxy pour la communication de l'API Brightcove</h2>
+<div><!--
+    <iframe class="training-video-player" src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="360" width="640"></iframe>
+  --></div>
+<p>Étant donné que le Connector est une application JavaScript côté client, un serveur proxy est requis pour courtier les communications authentifiées vers l'API Brightcove. Vous trouverez plus d'informations dans le <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">document API Brightcove.</a></p>
+<p>Une application proxy .net est fournie dans le package Brightcove Video Connect. Le serveur proxy doit être déployé dans un emplacement accessible sur le Web, tel que sur Microsoft Azure. Pour des raisons de sécurité, le proxy est conçu pour autoriser uniquement les connexions à partir de sites Web inclus dans le fichier web.config installé avec le proxy. La clé brightcove:origines du fichier web.config doit inclure l'URL du site Web SharePoint pour l'application <strong>BrightCoveConnector</strong> ainsi que l'URL du site sur lequel le composant <strong>BrightCovePlayer</strong> s'exécutera. Voir l'exemple ci-dessous :</p>
+<p><code translate="No">&lt;add key="brightcove:origins" value="https://brightcovecms-a3da847a1c9e33.sharepoint.com, https://brightcovecms.sharepoint.com" /&gt; </code></p>
+<p>Plusieurs sites peuvent être répertoriés sous la forme d'une chaîne séparée par des virgules.</p>
+<section class="bcls-section">
+  <h2 id="launching">Lancement de Brightcove Video Connect pour SharePoint</h2>
+  <!--
+            <iframe class="training-video-player" src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="360" width="640"></iframe>
+            -->
+  
+  <p>Pour lancer l'application, l'utilisateur peut cliquer sur l'application <strong>BrightCoveConnector</strong> dans la liste Contenu du site, ou cliquer sur un lien de menu si cela est configuré par l'administrateur SharePoint.</p>
+  <p>Dans les deux cas, l'utilisateur sera amené à la page d'accueil de l'application Connector. Cette page pourrait être configurée par le client pour inclure des messages supplémentaires spécifiques à l'entreprise, des liens supplémentaires, etc. Comme décrit dans la section d'installation, selon l'appartenance au groupe de l'utilisateur, il peut ou non afficher les onglets Gestion de compte et Ajouter des vidéos.</p>
+  <p>La navigation principale dans la colonne de gauche du Connecteur est toujours présente et permet à l'utilisateur de naviguer dans toutes les sections auxquelles il a accès (voir la section ci-dessus concernant <a href="#sharepointpermissions">les autorisations</a>). Voici une brève description de l'objectif de chaque composant du connecteur :</p>
+  <ul>
+    <li><strong>Accueil</strong> - La page de destination lors de la première entrée dans le connecteur.</li>
+    <li><strong>Gestion des comptes</strong> - Fournit l'interface permettant de saisir les informations de compte Brightcove Video Cloud dans SharePoint.</li>
+    <li><strong>Ajouter des vidéos</strong> - Téléchargez de nouvelles vidéos dans Video Cloud. Un objet vidéo est également créé dans SharePoint (à l'exception du fichier vidéo réel).</li>
+    <li><strong>Gérer les vidéos</strong> - Parcourez et modifiez des vidéos existantes, ainsi que des vidéos depuis Video Cloud dans SharePoint.</li>
+    <li><strong>Gérer les playlists</strong> - Créez de nouvelles playlists ainsi que parcourez et gérez les playlists existantes.</li>
+  </ul>
+  <figure><img class="bcls-image--no-border" alt="" style="width:400px;" src="/assets/images/sharepoint/node16612-launch-main-menu.png"/></figure>
+  <p>Il existe également des composants <strong>Ajouter une vidéo à partir de Brightcove</strong> et <strong>Modifier la vidéo</strong> qui seront affichés dans la navigation principale lors de l'exécution de ces opérations.</p>
+  <table>
+    <tbody>
+      <tr>
+        <td><img class="bcls-image--no-border" alt="" style="width:400px;" src="/assets/images/sharepoint/node16612-launch-main-menu-add.png"/></td>
+        <td><img class="bcls-image--no-border" alt="" style="width:400px;" src="/assets/images/sharepoint/node16612-launch-main-menu-edit.png"/></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="bcls-section">
+  <h2 id="linking">Liaison aux comptes Video Cloud</h2>
+  <p>La section Gestion des comptes de Connector permet d'entrer les informations relatives à chacun des comptes Brightcove Video Cloud liés qui seront accessibles sur le Site. <strong>Les comptes Brightcove ne peuvent pas être créés à partir de SharePoint, ils doivent d'abord être créés dans Video Cloud.</strong> Les informations du compte Brightcove doivent être saisies dans SharePoint telles qu'elles sont utilisées lors de l'accès à l'API Brightcove pour communiquer avec Video Cloud. Il fournit également les moyens d'attribuer des autorisations d'accès spécifiques à un compte. Pour les clients d'entreprise multi-comptes, il permet de contrôler quels utilisateurs peuvent accéder à chaque compte et s'ils peuvent simplement parcourir ou télécharger des vidéos.</p>
+  <div><!--
+            <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+            --></div>
+  <h3>Page de destination Gestion des comptes</h3>
+  <p>La page d'accueil Gestion des comptes affiche la liste actuelle des comptes configurés, ainsi que les groupes affectés aux auteurs et aux visionneuses.</p>
+  <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-landing-page.png"/>
+  <ol>
+    <li><strong>Titre du compte</strong> - Comptes actuellement configurés (ou au moins créés).</li>
+    <li><strong>AuthorsGroup - Le</strong> groupe SharePoint a attribué les droits « Auteur » pour le compte.</li>
+    <li><strong>ViewersGroup - Le groupe</strong> SharePoint a attribué les droits « Viewer » pour le compte.</li>
+    <li><strong>Ajouter un nouveau compte</strong> - Ouvrez l'écran de création de compte pour configurer un nouveau compte.</li>
+  </ol>
+  <h3>Création/modification d'un compte</h3>
+  <p>Qu'il s'agisse de créer un compte ou de modifier un compte existant, le processus et les options sont les mêmes. Toutes les propriétés du compte (à l'exception des groupes Auteur et Viewers) doivent d'abord être obtenues à partir du compte Video Cloud. Voici les propriétés requises pour chaque compte.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-creating-account.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Nom du compte</strong> : nom du compte. Ce nom n'est utilisé que dans SharePoint, il n'est donc pas nécessaire d'être le même que dans Video Cloud.</li>
+    <li><strong>DefaultVideoPlayerID</strong> - Définit le lecteur par défaut pour les vidéos.</li>
+    <li><strong>DefaultPlayListPlayerID</strong> - Définit le lecteur de liste de lecture par défaut.</li>
+    <li><strong>ID de compte</strong> : ID de compte Brightcove de Video Cloud.</li>
+    <li><strong>ClientID</strong> - ID client d'authentification de l'API Brightcove.</li>
+    <li><strong>Client Secret - Secret client</strong> d'authentification de l'API Brightcove.</li>
+    <li><strong>Emplacement de stockage temporaire</strong> - Emplacement de stockage temporaire à utiliser lors du téléchargement de vidéos et de pistes de texte vers Video Cloud. Le menu déroulant permet de sélectionner Amazon Web Services (AWS) ou Dropbox.</li>
+    <li><strong>ID de clé d'accès AWS</strong> - Si vous utilisez AWS, l'ID de clé d'accès est entré ici.</li>
+    <li><strong>Clé d'accès secrète AWS</strong> - Si vous utilisez AWS, la clé d'accès secrète est entrée ici.</li>
+    <li><strong>Nom du compartiment AWS</strong> - Si vous utilisez AWS, le nom du compartiment AWS est entré ici.</li>
+    <li><strong>ID de compte Dropbox</strong> - Si vous utilisez Dropbox, l'ID de compte Dropbox est entré ici.</li>
+    <li><strong>Token d'accès Dropbox</strong> - Si vous utilisez Dropbox, le jeton d'accès Dropbox est entré ici.</li>
+    <li><strong>Champs personnalisés</strong> : permet de mapper les champs personnalisés créés dans Video Cloud pour ce compte. Voir la section <a href="#custfields">Mappage de champs personnalisés</a> pour plus d'informations.</li>
+    <li><strong>Groupe d'auteurs, Groupe de visionneuses</strong> - Groupes de définition d'autorisations côté SharePoint pour le compte.
+      <ol type="a">
+        <li>Les membres du groupe d'auteurs (dans ce cas, le groupe « Propriétaires » SharePoint) ont la possibilité d'exécuter des fonctions dans le compte qui nécessitent un jeton d'écriture telles que l'ajout d'une vidéo, l'édition et la mise à jour d'une vidéo existante, la création/modification d'une playlist, etc. Ils peuvent également effectuer toutes les fonctions de type lecture telles que la navigation et la recherche de vidéos et de listes de lecture.</li>
+        <li>Les membres du groupe de visionneuses (dans ce cas, le groupe « Visiteurs » SharePoint) ne sont autorisés que pour les fonctions de type lecture telles que la navigation et la recherche de vidéos et de playlists.</li>
+      </ol>
+    </li>
+  </ol>
+  <p>Pour modifier l'une des propriétés de la liste de comptes ci-dessus, l'utilisateur peut soit cliquer sur le nom de la propriété ou sa valeur (le cas échéant) pour ouvrir la boîte de dialogue contextuelle de propriété :</p>
+  <h4>Saisissez les informations d'identification du compte de Brightcove dans SharePoint</h4>
+  <p>Pour que SharePoint puisse se connecter à Brightcove Video Cloud, les informations d'identification du compte de Brightcove doivent être ajoutées à SharePoint. Cette section décrit comment localiser les informations d'identification du compte dans Brightcove. La section suivante décrit comment ajouter ces informations d'identification au connecteur SharePoint.</p>
+  <ol class="bcls-tasklist">
+    <li>Connectez-vous à Brightcove Video Cloud. Notez la valeur de l'ID de l'éditeur.<br/> <img class="bcls-image--no-border" alt="" width="900" src="/assets/images/sharepoint/node16612-accounts-publisher-id.png"/></li>
+    <li>Accédez à Admin.<br/> <img class="bcls-image--no-border" alt="" width="900" src="/assets/images/sharepoint/node16612-accounts-admin.png"/></li>
+    <li>Accédez à l'authentification API.<br/> <img class="bcls-image--no-border" alt="" width="900" src="/assets/images/sharepoint/node16612-accounts-admin-api-authentication.png"/></li>
+    <li>Enregistrez une nouvelle demande.<br/> <img class="bcls-image--no-border" alt="" width="900" src="/assets/images/sharepoint/node16612-accounts-admin-register-button.png"/></li>
+    <li>Nommez l'application, définissez l'accès au compte et activez les API.<br/> <img class="bcls-image--no-border" alt="" width="900" src="/assets/images/sharepoint/node16612-accounts-admin-auth-form.png"/></li>
+    <li>Notez l'ID client et le secret client. Vous devrez les entrer dans SharePoint dans la section suivante.<br/> <img class="bcls-image--no-border" alt="" width="500" src="/assets/images/sharepoint/node16612-accounts-admin-auth-credentials.png"/></li>
+  </ol>
+  <p>Pour définir l'ID de compte Brightcove, cliquez sur le bouton « ID de compte » et saisissez l'ID d'éditeur Brightcove que vous avez enregistré à l'étape précédente sur le mode suivant :</p>
+  <figure><img class="bcls-image--no-border" alt="" width="623" src="/assets/images/sharepoint/node16612-account-mgmt-account-id.png"/></figure>
+  <p>Pour définir l'ID client Brightcove, sélectionnez le bouton « ID client » et entrez l'ID client que vous avez enregistré à l'étape précédente sur le modal suivant :</p>
+  <figure><img class="bcls-image--no-border" alt="" width="623" src="/assets/images/sharepoint/node16612-account-mgmt-client-id.png"/></figure>
+  <p>Pour définir le secret client Brightcove, cliquez sur le bouton « Client Secret » et saisissez le secret client que vous avez enregistré à l'étape précédente sur le modal suivant :</p>
+  <figure><img class="bcls-image--no-border" alt="" width="623" src="/assets/images/sharepoint/node16612-account-mgmt-client-secret.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Valeur</strong> - Saisissez la valeur de la propriété. La valeur peut être saisie à l'aide du coupe-coller à partir des données Video Cloud, si disponible.</li>
+    <li><strong>Fermer</strong> - Fermez la boîte de dialogue des propriétés sans apporter de modifications.</li>
+    <li><strong>OK</strong> - Enregistrez la valeur dans la liste des propriétés et fermez la boîte de dialogue.</li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h3 id="players">Définir des lecteurs Video Cloud</h3>
+  <div><!--
+            <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+            --></div>
+  <p>Pour définir l'ID de lecteur qui doit être utilisé comme lecteur vidéo unique par défaut dans SharePoint, sélectionnez le bouton « DefaultVideoPlayerID », entrez l'ID de lecteur de Brightcove sur le mode suivant :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-player-id.png"/></figure>
+  <ol class="bcls-section">
+    <li><strong>Valeur</strong> - Saisissez la valeur de la propriété. La valeur peut être saisie à l'aide du coupe-coller à partir des données Video Cloud, si disponible.</li>
+    <li><strong>Fermer</strong> - Fermez la boîte de dialogue des propriétés sans apporter de modifications.</li>
+    <li><strong>OK</strong> - Enregistrez la valeur dans la liste des propriétés et fermez la boîte de dialogue.</li>
+  </ol>
+  <p>Pour définir l'ID de lecteur qui doit être utilisé comme lecteur vidéo de playlist par défaut dans SharePoint, cliquez sur le bouton « DefaultPlaylistPlayerID » et entrez l'ID du lecteur dans Brightcove.</p>
+</section>
+<section class="bcls-section">
+  <h3 id="custfields">Définir des champs personnalisés</h3>
+  <div><!--
+            <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+            --></div>
+  <p>Lors de la configuration d'un compte dans le connecteur Brightcove, les champs personnalisés créés dans Video Cloud peuvent être ajoutés au profil de compte dans le Connecteur afin qu'ils apparaissent dans les zones Ajouter des vidéos et Gérer les vidéos, et que leurs valeurs soient stockées dans SharePoint pour la recherche. Lorsque les champs personnalisés sont mappés, ils sont répertoriés dans la section Champs personnalisés de l'écran Gestion des comptes, et indiqueront s'ils sont obligatoires ou non :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-custom-field-mapping.png"/></figure>
+  <p>Pour ajouter, supprimer ou modifier des champs personnalisés, cliquez sur le bouton « Modifier les champs personnalisés ». La fenêtre modale suivante s'affiche, qui répertorie <u>TOUS les</u> champs personnalisés disponibles pour le compte. REMARQUE - Cette liste ne sera disponible qu'une fois le nouveau compte enregistré pour la première fois.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-edit-custom-fields.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Champ personnalisé Video Cloud</strong> - Noms de TOUS les champs personnalisés définis dans Video Cloud pour le compte sélectionné.</li>
+    <li><strong>Type</strong> : type de champ personnalisé (Texte ou Liste).</li>
+    <li><strong>Obligatoire</strong> - Indique si le champ personnalisé est requis. Cette définition est définie dans Video Cloud et ne peut pas être modifiée à partir du connecteur.</li>
+    <li><strong>Inclure :</strong> faites partie du champ personnalisé du compte dans le Connecteur afin qu'il s'affiche lors de l'ajout, de la modification ou de la gestion de vidéos.</li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h2 id="dropboxs3">Liaison vers Dropbox ou AWS S3 pour le stockage de téléchargement temporaire</h2>
+  <div><!--
+            <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5026949771001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+            --></div>
+  <p>L'API Brightcove exige que tous les fichiers (fichiers vidéo, fichiers de piste texte) à traiter par Video Cloud doivent être téléchargés vers un emplacement intermédiaire accessible à la fois par le connecteur Brightcove et Video Cloud. AWS S3 et Dropbox sont deux services recommandés disponibles dans le connecteur Brightcove.</p>
+  <p>Vous trouverez des instructions sur la configuration de ces services afin de générer les informations requises dans la section Configuration du compte du connecteur Brightcove à l'aide des liens suivants :</p>
+  <ul>
+    <li><a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/source-file-upload-api-dynamic-ingest.html">Vue d'ensemble : API d'ingestion dynamique</a><br/> <a href="https://apis.support.brightcove.com/dynamic-ingest/general/using-dynamic-ingest-s3.html">Utilisation de l'ingestion dynamique avec S3</a><br/> <a href="https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html</a><br/> <a href="https://www.dropbox.com/developers">https://www.dropbox.com/developers</a></li>
+  </ul>
+  <p>REMARQUE : les fichiers téléchargés sur AWS S3 ou Dropbox ne sont pas automatiquement supprimés. Il est recommandé de configurer des stratégies sur ces services pour supprimer automatiquement les fichiers après un certain temps.</p>
+  <h4>Popup d'emplacement de stockage temporaire</h4>
+  <p>Pour définir l'emplacement de stockage temporaire qui doit être utilisé pour télécharger les fichiers, sélectionnez le bouton « Emplacement de stockage temporaire » et sélectionnez l'une des options de stockage dans le menu déroulant.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-temp-storage.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Valeur</strong> : sélectionnez Amazon Web Services ou Dropbox pour l'emplacement de stockage temporaire.</li>
+    <li><strong>OK</strong> - Enregistrez la valeur dans la liste des propriétés et fermez la boîte de dialogue.</li>
+  </ol>
+  <p>Selon l'emplacement de stockage choisi, sélectionnez les boutons « AWS Access Key ID », « AWS Secret Access Key » et « AWS Bucket Name » pour entrer les données de configuration nécessaires pour AWS S3 ou sélectionnez les boutons « ID de compte Dropbox » et « Dropbox Access Token » pour entrer les données de configuration nécessaires pour Dropbox.</p>
+</section>
+<section class="bcls-section">
+  <h2 id="permissions">Définition des autorisations SharePoint</h2>
+  <p>Pour définir le groupe SharePoint qui doit être autorisé en tant que groupe d'auteurs, cliquez sur le bouton « Groupe d'auteurs » et sélectionnez un groupe dans la liste déroulante comme illustré dans le modal suivant.</p>
+  <h4>Popup, propriété de groupe</h4>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-group-property.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionner un groupe</strong> : affiche tous les groupes SharePoint disponibles dans le site sur lequel le connecteur est installé.</li>
+    <li><strong>OK</strong> - Enregistrez la valeur dans la liste des propriétés et fermez la boîte de dialogue.</li>
+  </ol>
+  <p>Pour définir le groupe SharePoint qui doit être autorisé en tant que groupe de visualiseur, cliquez sur le bouton « Groupe de visualiseur » et sélectionnez un groupe dans la liste déroulante.</p>
+  <p><strong>IMPORTANT - Les valeurs d'un compte ne sont pas enregistrées tant que le bouton « Enregistrer » du compte n'est pas cliqué. La saisie de valeurs dans les boîtes de dialogue des propriétés ne les enregistre pas immédiatement dans le compte.</strong></p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-account-mgmt-save-delete.png"/></figure>
+  <ol>
+    <li><strong>Enregistrer le compte</strong> : valide toutes les valeurs définies sur les propriétés du compte dans SharePoint.</li>
+    <li><strong>Supprimer le compte</strong> - Supprime le compte de SharePoint. Avertissement - lorsque cette action est effectuée, toutes les vidéos qui ont été importées dans SharePoint sous le compte ne seront plus accessibles dans SharePoint. Toutefois, il ne supprime pas les vidéos de Video Cloud.</li>
+    <li><strong>Annuler</strong> - Ferme la fenêtre de configuration du compte sans enregistrer les modifications.</li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h2 id="videos">Ajout, importation et suppression de vidéos</h2>
+  <p>Le connecteur SharePoint permet à un auteur de contenu de télécharger des vidéos à partir de sa machine locale et de modifier les métadonnées des vidéos.</p>
+  <div><!--
+            <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5028605017001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+   --></div>
+  <h3>Ajouter des vidéos</h3>
+  <p>La section Ajouter des vidéos du Connector permet de télécharger de nouvelles vidéos dans Video Cloud. Toutes les données téléchargées dans Video Cloud, à l'exception du fichier vidéo lui-même, sont également stockées dans SharePoint, ce qui les rend disponibles pour les fonctions Connector ainsi que pour les résultats de recherche SharePoint. Il fournit également à l'administrateur SharePoint et aux utilisateurs un accès natif aux données sans avoir à se connecter à Video Cloud.</p>
+  <p>Ajouter des vidéos prend en charge une seule vidéo ainsi que plusieurs vidéos (chargement par lots). Lorsqu'un utilisateur accède à Ajouter des vidéos (s'il en a l'autorisation), il reçoit les champs suivants qui lui permettent d'entrer les métadonnées qui seront envoyées à Video Cloud :</p>
+  <h4>Page d'accueil « Ajouter une seule vidéo »</h4>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-add-single.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> (obligatoire) - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à ajouter des vidéos ; cette liste est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour activer le téléchargement.</li>
+    <li><strong>Nom</strong> (obligatoire) : nom de la vidéo téléchargée.</li>
+    <li><strong>Brève description</strong> - Brève description pour la vidéo.</li>
+    <li><strong>Description longue</strong> - Longue description pour la vidéo.</li>
+    <li><strong>Est actif</strong> (obligatoire) - Les options pour sa liste déroulante sont : Actif, Inactif, En attente, Supprimé. REMARQUE - Si une vidéo est téléchargée avec l'état Inactif, En attente ou Supprimé SharePoint ne sera plus en mesure d'accéder aux informations vidéo pour toute mise à jour ultérieure. Ceci est une fonction de l'API Brightcove.</li>
+    <li><strong>URL du lien connexe, Texte du lien connexe</strong> - Le lien hypertexte associé et le texte affichés dans le lecteur pour la vidéo.</li>
+    <li><strong>Date de disponibilité de début, date de disponibilité de fin</strong> - Définissez les dates de disponibilité de la vidéo. Si elle est définie, la vidéo ne sera pas diffusée en dehors de cette plage de dates.</li>
+    <li><strong>Économie</strong> - Les options sont gratuites et supportées par la publicité.</li>
+    <li><strong>Balises Brightcove</strong> : balises de données qui seront enregistrées dans les informations de balise Video Cloud en plus d'être enregistrées dans SharePoint. Elles sont séparées et distinctes des balises de métadonnées SharePoint que certains clients voudront ajouter à cette interface, et qui ne seraient enregistrées que dans SharePoint (non transférées vers Video Cloud).</li>
+    <li><strong>Champs personnalisés</strong> - Les champs personnalisés qui ont été ajoutés au Connecteur pour le compte sélectionné s'affichent. Tout texte de description défini dans Video Cloud pour le champ personnalisé s'affiche sous le champ.</li>
+    <li><strong>Fichiers de suivi texte</strong> - Des pistes de texte peuvent être ajoutées à chaque vidéo téléchargée, que ce soit lors du premier téléchargement ou lors des mises à jour ultérieures. Voir <a href="#addingtexttracks">Ajout de pistes de texte.</a></li>
+    <li><strong>Détails de l'image</strong> - La miniature et les images fixes de la vidéo seront générées dans Video Cloud et renvoyées via l'API au connecteur SharePoint. Ils seront visibles lorsque vous accédez à la vidéo via Gérer les vidéos.</li>
+    <li><strong>Fichier vidéo</strong> (obligatoire) - Cliquer sur le bouton « Parcourir » ouvrira l'explorateur de système de fichiers local pour sélectionner le fichier vidéo à télécharger.</li>
+  </ol>
+  <p>Une fois que l'utilisateur clique sur le bouton « Enregistrer », une vérification de validation est effectuée pour vérifier que tous les champs obligatoires sont remplis et que les données sont dans le format correct. Si la validation échoue, l'utilisateur sera invité à remplir les champs requis ou à corriger les données non valides. Par exemple :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-error-dialog.png"/></figure>
+  <p>S'il n'y a pas d'erreurs de validation, le téléchargement commence. Pendant le téléchargement, le modal d'état suivant est affiché pour fournir des commentaires sur la progression du téléchargement :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-success-upload-dialog.png"/></figure>
+  <p>Une fois le processus terminé, l'utilisateur peut « fermer » la boîte de dialogue d'état et le message suivant s'affiche sur le Site :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-success-upload-connector-menu.png"/></figure>
+  <p>Les données sont transférées vers Video Cloud et également enregistrées dans SharePoint sous le nom de compte et de vidéo spécifiés. Un ID unique est également généré dans SharePoint pour chaque vidéo téléchargée. Cet ID (appelé ID de référence) est transféré avec la vidéo dans Video Cloud en tant que balise supplémentaire sur la vidéo.</p>
+  <h4>Page d'accueil « Ajouter plusieurs vidéos »</h4>
+  <p>En sélectionnant l'option « Ajouter plusieurs vidéos », l'utilisateur peut télécharger plus d'une vidéo à la fois. Lorsque cette option est sélectionnée, seuls les champs qui seraient partagés entre toutes les vidéos sont affichés. Notez que pour le téléchargement de vidéos multiples, Video Cloud attribue automatiquement le nom du fichier vidéo comme nom de la vidéo.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-add-multiple.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> (obligatoire) - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à ajouter des vidéos ; cette liste est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour activer le téléchargement.</li>
+    <li><strong>URL du lien connexe, texte du lien connexe</strong> - Le lien hypertexte associé et le texte affichés dans le lecteur pour la vidéo</li>
+    <li><strong>Date de disponibilité de début, date de disponibilité de fin</strong> - Définissez les dates de disponibilité de la vidéo.</li>
+    <li><strong>Économie</strong> - Les options sont gratuites et supportées par la publicité.</li>
+    <li><strong>Balises Brightcove</strong> : balises de données qui seront enregistrées dans les informations de balise Video Cloud en plus d'être enregistrées dans SharePoint. Elles sont séparées et distinctes des balises de métadonnées SharePoint que certains clients voudront ajouter à cette interface, et qui ne seraient enregistrées que dans SharePoint (non transférées vers Video Cloud).</li>
+    <li><strong>Champs</strong> personnalisés - Les champs personnalisés qui ont été ajoutés au connecteur pour le compte sélectionné s'affichent. Tout texte de description défini dans Video Cloud pour le champ personnalisé s'affiche sous le champ.</li>
+    <li><strong>Fichier (s) vidéo (s)</strong> (requis) - Cliquer sur le bouton « Choisir un fichier » ouvrira l'explorateur de système de fichiers local pour sélectionner le fichier vidéo à télécharger. Pour ajouter plusieurs fichiers, cliquez sur le bouton « Ajouter un autre fichier » qui ajoute une autre option de sélection de fichier. Pour supprimer un fichier sélectionné de la liste, cliquez sur le bouton « Supprimer » sous ce fichier ou sélectionnez un autre fichier pour le remplacer. Cliquez sur « Enregistrer » pour commencer le téléchargement et affiche la boîte de dialogue de téléchargement pour indiquer l'état. Une fois le téléchargement terminé, la boîte de dialogue peut être fermée et le message de réussite s'affiche.</li>
+  </ol>
+  <p>Cliquez sur « Enregistrer » pour commencer le téléchargement et affiche la boîte de dialogue de téléchargement pour indiquer l'état. Une fois le téléchargement terminé, la boîte de dialogue peut être fermée et le message de réussite s'affiche.</p>
+  <h3 id="addingtexttracks">Ajout de pistes de texte</h3>
+  <p>Les pistes de texte peuvent être ajoutées à n'importe quelle vidéo lors du premier téléchargement ou lors des mises à jour ultérieures. Une vidéo peut avoir une ou plusieurs pistes de texte associées. L'utilisateur peut sélectionner le type de piste de texte à ajouter à la vidéo (Téléchargement de fichier, Upload URL ou URL distante). Si « Aucun » est sélectionné, la section n'affichera aucun des champs.</p>
+  <p><strong>IMPORTANT : Une seule vidéo ne prend PAS en charge un mélange de téléchargements de fichiers, de téléchargements d'URL ou d'URL distantes. Un seul type de piste de texte peut être associé à chaque vidéo.</strong></p>
+  <h4>Téléchargement de fichier</h4>
+  <p>Lorsque « Téléchargement de fichier » est sélectionné pour les fichiers de suivi texte, les champs suivants s'affichent :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-text-tracks-file-upload.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionner le type de piste de texte</strong> - Permet de sélectionner le téléchargement de fichier, le téléchargement d'URL ou l'URL distante.</li>
+    <li><strong>Sélecteur de fichiers</strong> - Sélection du fichier de piste texte.</li>
+    <li><strong>Propriétés de la piste de texte</strong> - Définissez les propriétés associées à la piste de texte. Cliquez sur « Ajouter » pour ajouter la piste de texte aux données vidéo lors du prochain chargement/mise à jour.
+      <ol type="a">
+        <li><strong>Langue</strong> - Code à deux lettres (balise BCP 47 langue valide) pour la langue de la piste de texte, par exemple « en » pour l'anglais.</li>
+        <li><strong>Étiquette</strong> : étiquette de la piste qui sera visible par l'utilisateur, par exemple dans un menu qui répertorie les différentes langues disponibles pour les sous-titres.</li>
+        <li><strong>Kind</strong> - L'un des cinq types de pistes pris en charge répertoriés</li>
+      </ol>
+    </li>
+    <li><strong>Liste des pistes de texte ajoutées/mises en file</strong> d'attente - Affiche la liste des pistes de texte existantes et des nouvelles pistes de texte qui sont mises en file d'attente pour être téléchargées lors de la prochaine sauvegarde. Une piste de texte peut être supprimée en cliquant sur le lien « Supprimer » et Sauvegarder la vidéo.</li>
+  </ol>
+  <h4>Téléchargement d'URL, téléchargement d'URL à distance</h4>
+  <p>Sélectionner l'une de ces options remplace le téléchargement « Fichier Upload » par un champ de texte dans lequel placer le chemin d'URL complet vers le fichier de piste de texte.</p>
+  <ul>
+    <li>Upload URL - Entrez l'URL publique où réside le fichier de piste texte, puis cliquez sur Télécharger. Le fichier sera téléchargé dans Video Cloud.</li>
+    <li>URL distante : entrez l'URL publique où réside le fichier de piste texte. L'URL doit compter moins de 250 caractères. Les sous-titres seront chargés depuis l'URL distante.</li>
+  </ul>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-text-tracks-url-upload.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionner le type de piste de texte</strong> - Permet de sélectionner le téléchargement de fichier, le téléchargement d'URL ou l'URL distante.</li>
+    <li><strong>Ajouter URL</strong> - Champ pour entrer le chemin d'accès URL complet au fichier de piste texte.</li>
+    <li><strong>Propriétés de la piste de texte</strong> - Permet de définir les propriétés associées à la piste de texte. Cliquez sur « Ajouter » pour ajouter la piste de texte aux données vidéo lors du prochain chargement/mise à jour.
+      <ol type="a">
+        <li><strong>Langue</strong> - Code à deux lettres (balise BCP 47 langue valide) pour la langue de la piste de texte, par exemple « en » pour l'anglais.</li>
+        <li><strong>Étiquette</strong> : étiquette de la piste qui sera affichée à l'utilisateur, par exemple dans un menu qui répertorie les différentes langues disponibles pour les sous-titres.</li>
+        <li><strong>Kind</strong> - L'un des cinq types de piste pris en charge répertoriés.</li>
+      </ol>
+    </li>
+    <li><strong>Liste des pistes de texte ajoutées/mises en file</strong> d'attente - Affiche la liste des pistes de texte existantes et des nouvelles pistes de texte qui sont mises en file d'attente pour être téléchargées lors de la prochaine sauvegarde. Une piste de texte peut être supprimée en cliquant sur le lien « Supprimer » et Sauvegarder la vidéo.</li>
+  </ol>
+  <h3>Gérer les vidéos</h3>
+  <p>La section Gérer les vidéos du Connecteur permet de parcourir et de gérer les vidéos existantes. Cela inclut l'édition et la mise à jour des vidéos existantes selon les besoins. La fonctionnalité de recherche permet de rechercher des vidéos par nom de recherche, description et informations de balise.</p>
+  <h4>Page de destination Gérer les vidéos</h4>
+  <p>La page de destination Gérer les vidéos affiche la liste des champs qui peuvent être utilisés pour parcourir ou rechercher des vidéos dans les comptes disponibles :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-manage.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à accéder ; cette option est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour afficher les annonces de vidéos.</li>
+    <li><strong>Recherche</strong> - Filtrer les résultats de la vidéo à ceux contenant le terme. Le nom, les balises et les informations de description ainsi que les champs de métadonnées SharePoint, s'ils sont définis, sont recherchés. Il n'est possible de rechercher que dans un compte à la fois ; la recherche entre comptes n'est pas prise en charge.</li>
+    <li><strong>Afficher SharePoint uniquement ou Video Cloud uniquement</strong> : filtrez les vidéos sur celles qui sont enregistrées dans SharePoint, ou celles qui ne résident que dans Video Cloud et qui n'ont jamais été importées dans SharePoint.</li>
+    <li><strong>Filtres de tri et d'ordre</strong> - Permet de trier et de commander les résultats en fonction des paramètres répertoriés pour faciliter la recherche des vidéos plus rapidement.</li>
+  </ol>
+  <h4>Affichage d'une annonce vidéo dans un compte</h4>
+  <p>Une fois qu'un compte est sélectionné, la liste des vidéos disponibles pour ce compte s'affiche :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-manage-sharepoint-listing.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à accéder ; elle est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour afficher les annonces de vidéos.</li>
+    <li><strong>Afficher SharePoint uniquement ou Video Cloud uniquement</strong> - Cette option a pour but de filtrer les vidéos uniquement à celles qui sont enregistrées dans SharePoint, ou celles qui ne résident que dans Video Cloud et qui n'ont jamais été importées dans SharePoint.</li>
+    <li><strong>Filtres de tri et d'ordre</strong> - Permet de trier et de commander les résultats en fonction des paramètres répertoriés pour faciliter la recherche des vidéos plus rapidement.</li>
+    <li><strong>Commandes de pagination</strong> - Chaque page affichera jusqu'à 5 listes de vidéos. Lorsque plus de 5 sont présents, les contrôles de pagination apparaissent.</li>
+    <li><strong>Liste des vidéos</strong> - Chaque liste de vidéos contient les éléments suivants :
+      <ol type="a">
+        <li>Nom de la vidéo - Cliquer sur le nom ouvrira la vidéo pour l'édition de ses données.</li>
+        <li>Description courte</li>
+        <li>Liste des balises associées à la vidéo (ne répertorie pas l'ID de référence même s'il est enregistré dans Video Cloud en tant que balise).</li>
+        <li>Le lien « Modifier la vidéo ». Ce lien (ou en cliquant sur le nom) permet d'ouvrir la vidéo pour modification si l'utilisateur actuel a l'autorisation.</li>
+        <li>ID de la vidéo : Il s'agit de l'ID vidéo Video Cloud. Cet ID sera répertorié une fois la vidéo éditée (même sans modification) et enregistré pour la première fois après le téléchargement.</li>
+      </ol>
+    </li>
+  </ol>
+  <h4>Importation d'une vidéo Video Cloud uniquement dans SharePoint</h4>
+  <p>Si une vidéo a été téléchargée directement dans Video Cloud et non via le Connector, il est possible d' « importer » les données de cette vidéo dans SharePoint afin qu'elle puisse être gérée dans SharePoint à l'avenir. Pour ce faire, recherchez d'abord la vidéo en utilisant l'option de listage « Video Cloud uniquement » (1) :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-manage-videocloud-listing.png"/></figure>
+  <p>Cliquez ensuite sur le nom de la vidéo ou sur le lien Modifier la vidéo pour ouvrir la vidéo en mode édition comme décrit dans les sections suivantes. Une fois la vidéo enregistrée en mode édition, les données seront également stockées dans SharePoint et la vidéo apparaîtra dans la section « SharePoint Only ».</p>
+  <p><strong>IMPORTANT - Le connecteur SharePoint synchronise uniquement les données de SharePoint vers Video Cloud et non Video Cloud vers SharePoint. Cela signifie que lorsque vous importez une vidéo de Video Cloud vers SharePoint, toutes les modifications apportées aux méta-données doivent être apportées dans SharePoint et les modifications apportées aux méta-données effectuées dans Video Cloud ne seront pas mises à jour dans SharePoint et seront remplacées la prochaine fois que la vidéo sera modifiée dans SharePoint.</strong></p>
+  <h4>Modification de vidéos existantes dans un compte</h4>
+  <p>Pour éditer des vidéos existantes afin de mettre à jour leurs champs de données, l'utilisateur peut cliquer sur le nom (1) ou le lien Modifier la vidéo (2) dans la liste vidéo :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-manage-edit-listing.png"/></figure>
+  <p>L'écran Modifier la vidéo s'affiche, avec les données de la vidéo sélectionnée affichées pour le montage :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-videos-manage-edit.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li>Notez que « Modifier la vidéo » s'affiche dans la navigation principale de gauche où Ajouter des vidéos est généralement affiché. C'est parce qu'il utilise le même formulaire de page, juste dans un mode différent puisqu'il s'agit d'une vidéo existante. Cela permet également à l'utilisateur de revenir facilement à la section Gérer les vidéos si nécessaire.</li>
+    <li>Certains champs ne sont pas disponibles pour la modification/mise à jour pendant ce processus :
+      <ul>
+        <li>Le compte auquel la vidéo est associée ne peut pas être modifié car les vidéos ne peuvent pas être transférées entre des comptes Video Cloud.</li>
+        <li>L'ID de référence (ID vidéo Video Cloud) ne peut pas être modifié.</li>
+        <li>Impossible de modifier l'ID SharePoint.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Tous les autres champs affichés, à l'exception des images générées automatiquement par Video Cloud, sont disponibles pour mise à jour comme lors de la première mise en ligne de la vidéo. Une fois les modifications effectuées, l'utilisateur clique sur le bouton « Enregistrer » pour valider les modifications. La même validation qui s'exécute sur le téléchargement Ajouter des vidéos est également effectuée ici.</p>
+  <h4>Suppression de vidéos</h4>
+  <p>La suppression de vidéos de SharePoint s'effectue en dehors du connecteur. Pour supprimer une vidéo dans SharePoint, accédez à Contenu du site - &gt; Vidéos où vous pouvez trouver et supprimer la vidéo.</p>
+  <p><strong>IMPORTANT - La suppression de la vidéo enregistrée dans SharePoint ne supprime pas la vidéo dans Video Cloud et laisse la vidéo dans Video Cloud avec certaines balises qui ont été utilisées pour lier la vidéo à SharePoint. Si vous souhaitez importer à nouveau la vidéo dans SharePoint à l'avenir, les balises commençant par « bcsp- » doivent être supprimées.</strong></p>
+</section>
+<section class="bcls-section">
+  <h2 id="search">Recherche de vidéos</h2>
+  <p>Sous Gérer les vidéos, l'utilisateur peut entrer un terme de recherche pour rechercher des vidéos dans le compte sélectionné qui ont un nom, une description ou des informations de balise correspondant au terme recherché. Une fois la liste des résultats affichée, tous les filtres de tri et de commande peuvent être appliqués.</p>
+  <div><!--
+                <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5078428048001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+--></div>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-search-listing.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Champ de recherche</strong> - L'utilisateur peut entrer le ou les termes de recherche ici et cliquer sur la loupe (ou cliquer sur retour) pour exécuter la recherche.</li>
+    <li><strong>Afficher SharePoint uniquement ou Video Cloud uniquement</strong> : filtrez les vidéos sur celles qui sont enregistrées dans SharePoint, ou celles qui ne résident que dans Video Cloud et qui n'ont jamais été importées dans SharePoint.</li>
+    <li><strong>Filtres de tri et d'ordre</strong> - Permet de trier et de commander les résultats en fonction des paramètres répertoriés pour faciliter la recherche des vidéos plus rapidement.</li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h2 id="playlists">Ajout, importation et suppression de listes de lecture</h2>
+  <p>La section Gérer les listes de lecture du Connecteur permet de créer de nouvelles playlists ainsi que de parcourir et de gérer les listes de lecture existantes, y compris l'édition et la mise à jour. Contrairement aux vidéos, les informations de playlist ne sont pas stockées dans SharePoint, mais récupérées à partir de Video Cloud chaque fois qu'un compte est parcouru dans cette section. Pour cette raison, il y a quelques retards inhérents à la disponibilité des données de la liste de lecture via l'API qui seront appelées dans les sections suivantes.</p>
+  <div><!--
+                <iframe class="training-video-player " src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5078707813001 " allowfullscreen=" " webkitallowfullscreen=" " mozallowfullscreen=" " height="360 " width="640 "></iframe>
+--></div>
+  <h3>Page de destination Gérer les sélections</h3>
+  <p>La page de destination Gérer les sélections affiche la liste des champs qui peuvent être utilisés pour rechercher des sélections ou en créer de nouvelles dans les comptes disponibles :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-playlist-manage.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à accéder ; cette option est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour afficher les listes de lecture.</li>
+    <li><strong>Colonnes d'affichage des</strong> listes de lecture - Les données de la liste de lecture seront affichées dans ces colonnes. Les résultats peuvent être triés par n'importe quelle colonne en cliquant sur l'en-tête de colonne.</li>
+    <li><strong>Ajouter une nouvelle playlist</strong> - Cliquez sur ce bouton pour créer une nouvelle playlist dans le compte sélectionné.</li>
+  </ol>
+  <p>Une fois qu'un compte est sélectionné, toutes les sélections de ce compte s'affichent.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-playlist-manage-list.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Sélectionnez Compte</strong> - Cette liste déroulante sera renseignée avec tous les comptes auxquels l'utilisateur est autorisé à accéder ; cette option est activée via l'affectation Groupes de comptes. L'utilisateur doit sélectionner un compte pour afficher les listes de lecture.</li>
+    <li><strong>Colonnes d'affichage de la liste de lecture</strong> - Les annonces peuvent être triées par n'importe quelle colonne en cliquant sur l'en-tête de colonne. Cela peut aider à trouver une liste de lecture si la liste est longue.</li>
+    <li><strong>Liste des listes de lecture</strong> - Chaque liste de playlist contient les éléments suivants :
+      <ol type="a">
+        <li>Nom de la playlist - Cliquer sur le nom ouvrira la liste de lecture pour modifier ses données.</li>
+        <li>Liste des ID vidéo actifs dans la liste de lecture.</li>
+        <li>Brève description.</li>
+        <li>Type de liste de lecture - Liste de <a href="https://studio.support.brightcove.com/media/introduction-playlists.html">lecture manuelle ou intelligente</a>.</li>
+        <li>ID de la liste de lecture (ID de playlist Video Cloud).</li>
+        <li>Le lien « Modifier la liste de lecture ». Ce lien (ou en cliquant sur le nom) permet d'ouvrir la liste de lecture pour la modifier ou d'afficher ses détails.</li>
+      </ol>
+    </li>
+    <li><strong>Ajouter une nouvelle playlist</strong> - Cliquez sur ce bouton pour créer une nouvelle playlist dans le compte sélectionné.</li>
+  </ol>
+  <h3>Ajout d'une nouvelle liste de lecture</h3>
+  <p>Pour ajouter une nouvelle playlist à un compte, l'utilisateur clique sur le bouton « Ajouter une nouvelle playlist ». Le formulaire Ajouter une liste de lecture s'ouvre :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-playlist-manage-add.png"/></figure>
+  &nbsp;
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-playlist-manage-current-videos.png"/></figure>
+  <p>Notez que les vidéos peuvent être déplacées vers le haut et vers le bas dans la liste de lecture en sélectionnant la vidéo à déplacer et en activant l'option « Déplacer la vidéo » pour utiliser les boutons Haut/Bas. Plusieurs vidéos peuvent être déplacées à la fois.</p>
+  <ol class="bcls-tasklist">
+    <li><strong>Nom</strong> - Nom de la nouvelle liste de lecture.</li>
+    <li><strong>Description</strong> - Une brève description de la liste de lecture.</li>
+    <li><strong>Type</strong> - Type de liste de lecture - <a href="https://studio.support.brightcove.com/media/introduction-playlists.html">Manuel ou Smart</a>. Cet exemple montre une liste de lecture manuelle. L'exemple de la section « Modification d'une liste de lecture » montre les options d'une liste de lecture intelligente.</li>
+    <li><strong>Vidéos disponibles</strong> - Dans le cas d'une liste de lecture manuelle, affichez la zone de recherche et la liste des vidéos disponibles dans le compte. Cela permet à l'utilisateur de restreindre les choix vidéo à ajouter à la liste de lecture.</li>
+    <li><strong>Liste des vidéos disponibles</strong> - Répertorier les vidéos disponibles dans le compte ou filtre en fonction du terme recherché. Une ou plusieurs vidéos peuvent être sélectionnées en cliquant sur les vidéos. Les vidéos sélectionnées sont mises en surbrillance en vert. Pour désélectionner une vidéo, l'utilisateur clique à nouveau dessus. Cela permet de déplacer plusieurs vidéos dans la liste de lecture en une seule action.</li>
+    <li><strong>Flèches d'action</strong> - Déplace les vidéos sélectionnées dans et hors de la liste de lecture.</li>
+    <li><strong>Vidéos de cette liste de lecture</strong> - Les vidéos actuelles de la liste de lecture sont affichées ici.</li>
+    <li><strong>Enregistrer</strong> - Engagez les modifications et commencez le processus de création de la nouvelle liste de lecture dans Video Cloud. REMARQUE - Les listes de lecture ne sont pas enregistrées dans SharePoint.</li>
+  </ol>
+  <h3>Modification d'une liste de lecture existante</h3>
+  <p>La modification d'une liste de lecture existante est commencée en cliquant soit sur le nom, soit sur le lien « Modifier » dans la liste des listes de lecture. Cela ouvre l'affichage suivant pour modifier les options de la liste de lecture. Cet exemple montre comment afficher les options d'une liste de lecture intelligente. Lors de la modification de l'un des champs, à l'exception de l'ID de la liste de lecture et du compte, peut être modifié :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-playlist-manage-edit.png"/></figure>
+  <ol bcls-tasklist="">
+    <li><strong>Nom</strong> - Nom de la liste de lecture.</li>
+    <li><strong>Description</strong> - Une brève description de la liste de lecture.</li>
+    <li><strong>Type</strong> - Type de liste de lecture - <a href="https://studio.support.brightcove.com/media/introduction-playlists.html">Manuel ou Smart</a>. Cet exemple montre comment couvrir les options d'une liste de lecture intelligente.</li>
+    <li><strong>Tags</strong> - Dans le cas d'une liste de lecture intelligente, ce champ permet à l'utilisateur de spécifier les critères et les balises à utiliser pour identifier les vidéos à inclure dynamiquement dans la liste de lecture.
+      <ul>
+        <li>La liste déroulante Critères comprend « Contenir un ou plusieurs » ou « Contenir tout ».</li>
+      </ul>
+    </li>
+    <li><strong>Ordre</strong> - Cela permet à l'utilisateur de spécifier comment l'ordre des vidéos correspondantes est défini. Les sélections comprennent les éléments suivants :
+      <ul>
+        <li>Alphabétique</li>
+        <li>Date d'activation (la plus récente en premier)</li>
+        <li>Date d'activation (la plus ancienne en premier)</li>
+        <li>Nombre total de lectures</li>
+        <li>Nombre de lectures sur les sept derniers jours</li>
+        <li>Date de début (la plus ancienne en premier)</li>
+        <li>Date de début (la plus récente en premier)</li>
+      </ul>
+    </li>
+    <li><strong>Limiter à</strong> - Définit le nombre maximal de vidéos qui seront incluses dans la liste de lecture en fonction des critères sélectionnés.</li>
+    <li><strong>Aperçu</strong> - Répertorier les vidéos correspondant aux critères et les afficher dans la fenêtre « Vidéos dans cette playlist ».</li>
+    <li><strong>Enregistrer</strong> - Engagez les modifications et commencez le processus de mise à jour de la liste de lecture dans Video Cloud. REMARQUE - Les listes de lecture ne sont pas enregistrées dans SharePoint.</li>
+    <li><strong>Supprimer la liste de lecture</strong> - Cette option marquera la liste de lecture comme supprimée dans Video Cloud. La liste de lecture n'apparaîtra plus dans la liste des listes de lecture Connector.</li>
+  </ol>
+</section>
+<section class="bcls-section">
+  <h2 id="embedding">Ajout de vidéo à un site SharePoint</h2>
+  <p>Le connecteur SharePoint permet aux auteurs de contenu d'insérer des médias dans leurs Sites de différentes manières. Ce chapitre décrit les options disponibles.</p>
+  <h3>Part WebPart Brightcove Player pour SharePoint sur site</h3>
+  <p>La solution sandbox de composants WebPart Brightcove Player génère un composant WebPart placé sur une page du site Web interne ou externe et lit la vidéo Brightcove. SharePoint Online limite la possibilité pour les utilisateurs d'ajouter des composants WebPart personnalisés de sorte que ce mécanisme d'insertion de vidéos n'est disponible que pour les installations SharePoint sur site.</p>
+  <p>Le composant WebPart a également été complété avec certaines des mêmes fonctionnalités dans la console de gestion, y compris la sélection de compte et la recherche avancée avec tri et commande pour trouver des vidéos et des listes de lecture plus rapidement.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-sharepoint-page.png"/></figure>
+  <p>Pour afficher les options du composant WebPart Player, la page SharePoint doit être en mode « Modifier » (1), ce qui expose l'option permettant de modifier le composant WebPart (2). Les options spécifiques au composant WebPart se trouvent dans la section « Configuration de Brightcove » (3) de l'éditeur de composants WebPart.</p>
+  <p>L'extension de la section Configuration de Brightcove révèle les fonctionnalités mises à jour de la solution sandbox Player WebPart.</p>
+  <h4>Sélection d'une vidéo à lire dans le composant WebPart</h4>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-video-chooser.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Configuration de Brightcove</strong> - Cette section de l'éditeur de composants WebPart permet d'accéder aux paramètres de configuration du composant WebPart et de sélectionner les vidéos/listes de lecture à lire.</li>
+    <li><strong>Largeur du joueur, Hauteur du joueur</strong> - Définissez les dimensions du joueur.</li>
+    <li><strong>ID du joueur</strong> - Indiquez l'ID du joueur à utiliser. Il est important que le lecteur sélectionné soit du même compte que la vidéo sélectionnée s'il s'agit d'un environnement multi-compte. Il n'y a pas de « sélecteur » pour le lecteur, de sorte que l'ID de Video Cloud doit être entré manuellement.</li>
+    <li><strong>ID vidéo</strong> - Le champ ID vidéo est renseigné à l'aide d'un sélecteur vidéo. Si l'utilisateur clique sur la zone de points de suspension située à droite du champ, la fenêtre Sélecteur s'affiche.</li>
+    <li><strong>Fenêtre Sélecteur</strong>
+      <ul>
+        <li><strong>Sélectionnez Compte</strong> - Affichez les comptes auxquels l'utilisateur actuel est autorisé à accéder.</li>
+        <li><strong>Vidéos disponibles</strong> - Filtrer les résultats vidéo à ceux contenant le terme. Le nom, les balises et les informations de description ainsi que les champs de métadonnées SharePoint, s'ils sont définis, sont recherchés. Il n'est possible de rechercher que dans un compte à la fois ; la recherche entre comptes n'est pas prise en charge.</li>
+        <li><strong>Trier par et classer par</strong></li>
+        <li><strong>Fenêtre de listage vidéo</strong> - Cliquez sur une vidéo pour la sélectionner pour la lecture. La liste est limitée à l'affichage de 30 vidéos, de sorte que toutes les vidéos du compte ne peuvent pas s'afficher lors de la première sélection d'un compte. L'utilisation de la fonctionnalité de recherche permet d'affiner la liste pour trouver la vidéo souhaitée.</li>
+        <li><strong>Bouton OK</strong> - Valider la sélection et renseigner le champ ID vidéo avec la valeur d'ID appropriée.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Une fois l'ID du lecteur et l'ID vidéo définis, le composant WebPart est configuré et prêt à être joué !</p>
+  <h4>Sélection d'une liste de lecture à lire dans le composant WebPart</h4>
+  <p>Le processus de sélection d'une playlist à lire est presque identique à la sélection d'une vidéo.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-playlist-chooser.png"/></figure>
+  <ol class="bcls-tasklist">
+    <li><strong>Configuration de Brightcove</strong> - Cette section de l'éditeur de composants WebPart permet d'accéder aux paramètres de configuration du composant WebPart et de sélectionner les vidéos/listes de lecture à lire.</li>
+    <li><strong>Largeur du joueur, Hauteur du joueur</strong> - Définissez les dimensions du joueur.</li>
+    <li><strong>ID du joueur</strong> - Indiquez l'ID du lecteur de lecture à utiliser. Il est important que le lecteur sélectionné soit du même compte que la vidéo sélectionnée s'il s'agit d'un environnement multi-compte et qu'il soit configuré pour afficher une liste de lecture. Il n'y a pas de « sélecteur » pour le lecteur, de sorte que l'ID de Video Cloud doit être entré manuellement.</li>
+    <li><strong>ID de liste de lecture</strong> - L'ID vidéo est renseigné à l'aide d'un sélecteur vidéo. Si l'utilisateur clique sur la zone de points de suspension située à droite du champ, la fenêtre Sélecteur s'affiche.</li>
+    <li><strong>Fenêtre Sélecteur</strong>
+      <ul>
+        <li><strong>Sélectionnez Compte</strong> - Affichez les comptes auxquels l'utilisateur actuel est autorisé à accéder.</li>
+        <li><strong>Trier par et classer par</strong></li>
+        <li><strong>Fenêtre de liste de liste de lecture</strong> - Cliquer sur une liste de lecture la sélectionnera pour la jouer. La liste est limitée à l'affichage de 30 playlists, de sorte que toutes les listes de lecture du compte ne peuvent pas s'afficher lors de la première sélection d'un compte. L'utilisation de la fonctionnalité de recherche permet d'affiner la liste pour trouver la liste de lecture souhaitée.</li>
+        <li><strong>Bouton OK</strong> - Valider la sélection et renseigner le champ ID de la liste de lecture avec la valeur d'ID appropriée.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Une fois l'ID de playlist et l'ID vidéo définis, le composant WebPart est configuré et prêt à être joué !</p>
+  <h3>Package de solutions Brightcove Player pour SharePoint Online ou SharePoint sur site</h3>
+  <p>Le package Brightcove Player Solution génère l'intégration d'un lecteur pour une vidéo Brightcove qui est intégrée à une page copier/coller le code intégré dans la boîte de dialogue Code d'intégration. Ce package peut être utilisé pour SharePoint Online ou SharePoint sur site.</p>
+  <h4>Utilisation</h4>
+  <em>Boutons SharePoint</em>
+  <p>Lors de la modification d'une page du site SharePoint, le groupe d'actions « Brightcove » s'affiche sur le ruban :</p>
+  <img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-brightcove-action-group.png"/>
+  <p>Sélectionnez l'option Vidéo Brightcove ou Liste de lecture Brightcove.</p>
+  <em>Dialogue de sélection</em>
+  <p>La boîte de dialogue de sélection permet à l'utilisateur de sélectionner une vidéo ou une playlist (en fonction de l'option sélectionnée dans le ruban). La boîte de dialogue vous permet de rechercher des vidéos et des playlists Video Cloud et affiche les résultats dans une grille :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-selection-dialog.png"/></figure>
+  <p>Lors de la sélection d'une vidéo ou d'une playlist, l'utilisateur peut éventuellement modifier le lecteur, la hauteur et la largeur. Après avoir cliqué sur « Ok », le script du lecteur de brightcove sera généré et placé dans la zone de texte en bas de la boîte de dialogue.</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-brightcove-snippet.png"/></figure>
+  <p>Ce script peut ensuite être ajouté à la page SharePoint de 2 manières différentes :</p>
+  <ul>
+    <li>Directement dans une zone de publication</li>
+    <li>Par le biais d'un composant WebPart éditeur de script, sur les pages qui autorisent uniquement les composants WebPart</li>
+  </ul>
+  <p>REMARQUE - Ce script est automatiquement copié dans le presse-papiers de l'utilisateur.</p>
+  <em>Ajout du script à une page SharePoint</em>
+  <p class="BCL-aside">Remarque : La procédure décrite ci-dessous concerne une zone de publication ; pour une page qui n'autorise que des composants WebPart, une fois qu'un composant WebPart éditeur de script est sur la page, la procédure est la même.</p>
+  <p>Pour ajouter le script à la page, après avoir obtenu le script généré à partir de la boîte de dialogue de sélection, cliquez dans une zone de publication. Dans l'onglet « Insérer », recherchez le bouton « Incorporer le code ».</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-embed-code.png"/></figure>
+  <p>Dans la boîte de dialogue résultante, collez le script d'intégration du lecteur. Cliquez sur « Ok ». Cela va insérer un éditeur de script sur la page :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-script-editor.png"/></figure>
+  <p>Une fois la page enregistrée, cet éditeur de script sera rendu en tant que lecteur Brightcove :</p>
+  <figure><img class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16612-embed-player-rendered-player.png"/></figure>
+</section>
+
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenu de la page</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Assistance Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">État du système</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contacter le support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formation</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Cours en ligne</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">S' inscrire à un cours</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Université de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactez-nous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove, Inc. Tous droits réservés.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Confidentialité</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Termes et conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

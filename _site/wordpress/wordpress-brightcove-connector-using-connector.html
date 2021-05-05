@@ -1,0 +1,664 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Connecteur WordPresss-BrightCove : Utilisation du connecteur</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logo du produit" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sélectionner la langue</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="assistance"/> Contacter le support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">État<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="état du système"/> du système</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/wordpress/">WordPress</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Connecteur WordPresss-BrightCove : Utilisation du connecteur</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Autres documents Brightcove</option>
+          
+            
+              <option value="https://support.brightcove.com">Accueil Documentation</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Audience de Brightcove</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Balise Brightcove</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Campagne Brightcove</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engagez</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Développement du joueur Brightcove</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">API de la plate-forme Video Cloud</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">SDK pour périphériques Video Cloud</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Intégrations et connecteurs CMS</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Informations générales sur Video Cloud</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Accueil</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Informations générales <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/cms-integration-training-videos.html">Vidéos de formation sur l'intégration CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/integrating-your-cms-video-cloud.html">Intégration de votre CMS avec Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-players-cms.html">Intégrer des joueurs Brightcove dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Intégration d'expériences dans la page dans un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Problèmes de connexion réseau et API de débogage</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/wordpress/index.html">WordPress <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Démarrer avec Brightcove Video Connect</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Foire aux questions</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Démarrer avec le connecteur pour Drupal</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestion de contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Intégrer du contenu</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Installation du connecteur</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuration et utilisation</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Installation</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Mise en route du connecteur pour AEM</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Installation</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">Vue d'ensemble</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sitecore/index.html">Sitecore <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Démarrer avec le connecteur pour Sitecore</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sharepoint/index.html">SharePoint <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Mise en route du Connector pour Sharepoint</a></li>
+                  
+                
+                  
+                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Utilisation du connecteur</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecommerce/index.html">eCommerce <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/salesforce/index.html">Salesforce Commerce Cloud <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud : </a>Installation</li>
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud : Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guide d'installation</a></li>
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">Guide de l'utilisateur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/kollective/index.html">Kollectif <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">Guide de déploiement d'eCDN kollectif</a></li>
+                        
+                        <li><a href="/ecdn/kollective/kollective-user-guide.html">Guide de l'utilisateur d'eCDN Kollective</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/peer5/index.html">Peer5 <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Intégration de Brightcove avec Peer5</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/ramp/index.html">Rampe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Démarrer avec Ramp OmniCache et Video Cloud</a></li>
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Démarrer avec Ramp Multicast+ et Video Cloud</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/web-conferencing/index.html">Conférence Web <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conférence Zoom sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conférence Cisco Webex à Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conférence Avaya sur Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-inxpo-live.html">Événement INXPO sur Brightcove Live</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">Support <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Affichage de la page État du système Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacter les ventes</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Ouverture d'un dossier de support</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menu de navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenu de la page</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="ouvrir dans un nouvel onglet" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>Connecteur WordPresss-BrightCove : Utilisation du connecteur</h1>
+  <summary>Cette rubrique explique l'utilisation du connecteur Wordpress-Brightcove pour gérer et publier des vidéos dans Wordpress.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>Le connecteur WordPress-BrightCove vous permet de gérer les vidéos et les lecteurs Brightcove Video Cloud dans WordPress, et d'intégrer facilement des vidéos dans des pages WordPress.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_player_publishing">Publication de lecteur vidéo</h2>
+    <p>La publication de lecteur vidéo permet à l'utilisateur d'insérer facilement des vidéos de son compte Brightcove sur son site WordPress.</p>
+    <p>Pour publier une vidéo, commencez par naviguer simplement vers la nouvelle page de publication. Au niveau des fonctionnalités principales, il y a un bouton « Ajouter un média » sous le titre et au-dessus de l'éditeur. Avec Brightcove Video Connect, il y a aussi un bouton « Brightcove Media ». Cliquez dessus pour ouvrir le modal média Brightcove.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Bouton pour ajouter Brightcove learning-services-media" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/brightcove-media.png"/></figure>
+    <p>À partir de là, l'utilisateur peut sélectionner l'image qu'il souhaite utiliser en cliquant dessus. La vignette de la vidéo apparaîtra sur le côté, avec les options. Pour trouver une vidéo spécifique, vous pouvez effectuer une recherche par titre, balise ou description.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="L'image sélectionnée apparaît sur le côté" width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/select-videos.png"/></figure>
+    <p>L'utilisateur peut alors choisir le lecteur qu'il souhaite utiliser et personnaliser des options telles que la lecture automatique, le style d'intégration et le dimensionnement.</p>
+    <p>Il y a deux options pour insérer la vidéo. Il suffit de cliquer sur le bouton « Insérer dans la publication » insère la vidéo dans le post, mais l'utilisateur peut également copier le shortcode et le coller dans le post. Si vous utilisez le bouton « Insérer dans la publication », le code court sera toujours visible dans la vue texte brut.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Options, Shortcode et bouton pour insérer une vidéo dans une publication" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/options-shortcode-insert.png"/></figure>
+    <p>La vidéo apparaîtra sur la nouvelle page de publication, mais pour voir à quoi elle ressemblera publiée, vérifiez l'aperçu du post. Cela peut être très différent.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="comparaison côte à côte de l'image dans la fenêtre d'édition et de la vidéo postée." width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/preview-vs-post.png"/></figure>
+    <section class="bcls-subsection">
+      <h3 id="publishing_playlists">Publication de sélections</h3>
+      <p>Les playlists peuvent être publiées exactement de la même manière que les vidéos individuelles. Notez qu'il doit y avoir un lecteur Brightcove compatible avec la liste de lecture pour pouvoir publier des listes de lecture.</p>
+    </section>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_content_management">Gestion des contenus vidéo</h2>
+    <p>L'utilisateur peut télécharger des vidéos sur Brightcove et mettre à jour les métadonnées directement à partir de son tableau de bord WordPress.</p>
+    <section class="bcls-subsection">
+      <h3 id="video_upload">Téléchargement vidéo</h3>
+      <p>Pour télécharger une vidéo sur Brightcove, à partir de la page d'administration de Brightcove sur WordPress, cliquez sur « Ajouter un nouveau ».«</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="Le bouton Ajouter un nouveau." src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/add-new.png"/></figure>
+      <p>À partir de là, vous pouvez sélectionner un fichier ou faire glisser un fichier vers la page à télécharger. Vous pouvez sélectionner plusieurs fichiers à télécharger en une seule fois</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="Sélectionnez ou glissez et déposez." width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/drop-files.png"/></figure>
+      <p>Le fichier apparaîtra sur la page. Pour ajouter des métadonnées, cliquez sur le nom du fichier et l'option s'ouvrira.</p>
+      <figure class="bcls-figure">&lt;img class="bcls-image » .= " » alt="Ajouter des métadonnées. » width="800px » src= » //learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-utilisation-le-connecteur/upload-avec-metadata.png »/&gt;</figure>
+      <p>Lorsque vous êtes prêt, appuyez sur Démarrer le téléchargement.</p>
+      <p>Les vidéos peuvent être téléchargées de la même manière à partir du modal média sur la nouvelle page de publication en cliquant sur le lien « Télécharger ».</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="failure">Échec</h3>
+      <figure class="bcls-figure"><img class="bcls-image" alt="avis d'échec" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/unable-to-upload.png"/></figure>
+      <p>Si la vidéo ne parvient pas à télécharger, cela peut poser un problème avec les autorisations de fichier. Vérifiez que le serveur Web dispose des autorisations en lecture/écriture pour le dossier wp-content/uploads. La vidéo sera temporairement téléchargée ici.</p>
+      <p>Brightcove n'ingère pas non plus derrière un pare-feu. Si c'est le problème, la nouvelle vidéo sera générée, mais pas transcodée.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="échec du téléchargement" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/failed-upload.png"/></figure>
+      <p>Pour contourner le problème, accédez à votre compte Brightcove et remplacez le fichier source. Le pare-feu doit être ouvert pour que Brightcove puisse ingérer des vidéos de WordPress.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="remplacer la source" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/replace-source.png"/></figure>
+      <p>N'oubliez pas de décocher la case pour conserver les vignettes et les affiches existantes. Sinon, il restera une boîte grise.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="désactivée pour que de nouvelles vignettes soient générées" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/keep-thumbnails.png"/></figure>
+      <p>Une fois le téléchargement terminé, votre vidéo devrait être disponible dans WordPress.</p>
+      <p>Pour plus d'informations, consultez les <a href="https://support.brightcove.com/debugging-network-and-api-connection-issues-cms-and-dam-integrations">problèmes de connexion réseau et API de débogage avec les intégrations CMS et DAM</a>.</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="metadata">Métadonnées</h3>
+      <p>À partir de WordPress, un utilisateur peut mettre à jour le nom, la description courte, la description longue et les balises d'une vidéo.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="modifier l'écran avec un nouveau nom et des informations" width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/edit-screen.png"/></figure>
+      <p>De nouvelles vignettes, affiches et pistes de légende peuvent également être téléchargées, mais comme pour le téléchargement de vidéos, vous pouvez être bloqué par des pare-feu ou des autorisations.</p>
+      <p>À partir de la <strong>version 1.7.0</strong>, vous pourrez également sélectionner un dossier Video Cloud prédéfini pour une vidéo. Cette action déplacera la vidéo vers ce dossier dans Wordpress et Video Cloud. Remarque : Vous devez créer des dossiers dans Video Cloud.</p>
+      <p>D'autres champs de métadonnées, y compris les champs personnalisés, doivent être modifiés dans Brightcove Studio.</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="deletion">Suppression</h3>
+      <p>Les utilisateurs peuvent supprimer des vidéos sur la page d'édition. Un avertissement apparaîtra pour confirmer.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="supprimer l'image" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/delete.png"/></figure>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="playlist_management">Gestion de la playlist</h3>
+      <p>Les playlists ne peuvent pas être créées à partir de WordPress, mais une fois qu'elles existent, elles peuvent être modifiées. Les vidéos peuvent être ajoutées ou supprimées, ou déplacées vers le haut ou vers le bas dans la liste.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="modifier l'écran de sélection" width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/playlists.png"/></figure>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="players">Lecteurs</h3>
+      <p>Les lecteurs peuvent également être créés ou modifiés uniquement dans Brightcove Studio, mais certains aspects, tels que la taille, peuvent être modifiés pour la vidéo spécifique lors de sa publication. Veuillez noter qu'un lecteur de playlist doit déjà exister avant de pouvoir publier des listes de lecture.</p>
+    </section>
+  </section>
+  <section class="bcls-section">
+    <h2 id="in-page-experience">Expérience dans la page</h2>
+    <p>Le plugin Brightcove prend en charge les expériences en page. Bien que l'option soit visible pour tout le monde, l'option doit être disponible pour le compte spécifique, sinon elle ne fonctionnera pas. Seuls les comptes qui ont accès à l'expérience dans la page peuvent l'utiliser dans Wordpress.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="sélectionner l'expérience vidéo" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/top-bar.png"/></figure>
+    <p>Il y a deux façons d'intégrer des expériences dans la page via wordpress : expérience vidéo et expérience de playlist. Grâce à l'expérience vidéo, vous devez d'abord sélectionner l'expérience que vous souhaitez inclure. Dans la barre latérale, il y a une liste déroulante avec les expériences disponibles répertoriées.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="sélectionner l'expérience vidéo" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/choose-your-experience.png"/></figure>
+    <p>Si vous cliquez sur « Insérer dans la publication » sans sélectionner de vidéos, vous insérez une expérience dans la page précédemment créée. Vous pouvez également sélectionner certaines vidéos, puis l'expérience en page que vous souhaitez inclure pour transformer ces vidéos en expérience. De même, grâce à l'expérience de playlist, sélectionnez une playlist et une expérience, puis insérez dans la publication. La liste de lecture sera convertie en une expérience.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenu de la page</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Assistance Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">État du système</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contacter le support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formation</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Cours en ligne</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">S' inscrire à un cours</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Université de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactez-nous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove, Inc. Tous droits réservés.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Confidentialité</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Termes et conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
