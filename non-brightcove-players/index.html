@@ -1,0 +1,26 @@
+---
+title: Description des joueurs non Brightcove : Cette section contient des informations sur les intégrations avec des lecteurs autres que Brightcove qui permettent de diffuser du contenu Brightcove via eux.
+parent: Home
+---
+ <h1>{{ page.title }}</h1>
+  <article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+  <section class="card-wrapper">
+    <section class="bcls-card">
+      <div class="card-content">
+        <h2 id="Topics_in_this_section">Les sujets</h2>
+        <ul>
+          {% for item in site.data.navigation %} {% if item.name == page.title %} {% for entry in item.docs %}
+          <li><a href="{{ entry.url }}">{{ entry.name }}</a> {% if entry.docs %}
+            <ul>
+              {% for subentry in entry.docs %}
+              <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %} </li>
+          {% endfor %} {% endif %} {% endfor %}
+        </ul>
+      </div>
+    </section>
+  </section>
+</article>

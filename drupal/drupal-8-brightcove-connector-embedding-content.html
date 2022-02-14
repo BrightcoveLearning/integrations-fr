@@ -1,431 +1,8 @@
-﻿<!doctype html>
-<html lang="fr">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>Connecteur Drupal 8-Brightcove : Intégrer du contenu</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logo du produit" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Sélectionner la langue</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="assistance"/> Contacter le support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">État<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="état du système"/> du système</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/drupal/">Drupal</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Connecteur Drupal 8-Brightcove : Intégrer du contenu</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Autres documents Brightcove</option>
-          
-            
-              <option value="https://support.brightcove.com">Accueil Documentation</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Audience de Brightcove</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Balise Brightcove</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Campagne Brightcove</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engagez</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Développement du joueur Brightcove</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">API de la plate-forme Video Cloud</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">SDK pour périphériques Video Cloud</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Intégrations et connecteurs CMS</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Informations générales sur Video Cloud</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Accueil</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Informations générales <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/cms-integration-training-videos.html">Vidéos de formation sur l'intégration CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/integrating-your-cms-video-cloud.html">Intégration de votre CMS avec Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-players-cms.html">Intégrer des joueurs Brightcove dans un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Intégration d'expériences dans la page dans un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Problèmes de connexion réseau et API de débogage</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/wordpress/index.html">WordPress <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Démarrer avec Brightcove Video Connect</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuration</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Foire aux questions</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Installation</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Démarrer avec le connecteur pour Drupal</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuration</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestion de contenu</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Intégrer du contenu</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Installation du connecteur</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuration et utilisation</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Installation</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Mise en route du connecteur pour AEM</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuration</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Installation</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">Vue d'ensemble</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Utilisation du connecteur</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sitecore/index.html">Sitecore <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Démarrer avec le connecteur pour Sitecore</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sharepoint/index.html">SharePoint <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Mise en route du Connector pour Sharepoint</a></li>
-                  
-                
-                  
-                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">Utilisation du connecteur</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecommerce/index.html">eCommerce <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/salesforce/index.html">Salesforce Commerce Cloud <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud : </a>Installation</li>
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud : Guide de l'utilisateur</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guide d'installation</a></li>
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">Guide de l'utilisateur</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/kollective/index.html">Kollectif <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">Guide de déploiement d'eCDN kollectif</a></li>
-                        
-                        <li><a href="/ecdn/kollective/kollective-user-guide.html">Guide de l'utilisateur d'eCDN Kollective</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/peer5/index.html">Peer5 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Intégration de Brightcove avec Peer5</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/ramp/index.html">Rampe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Démarrer avec Ramp OmniCache et Video Cloud</a></li>
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Démarrer avec Ramp Multicast+ et Video Cloud</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/web-conferencing/index.html">Conférence Web <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conférence Zoom sur Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conférence Cisco Webex à Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conférence Avaya sur Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-inxpo-live.html">Événement INXPO sur Brightcove Live</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">Support <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Affichage de la page État du système Brightcove</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacter les ventes</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">Ouverture d'un dossier de support</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menu de navigation"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenu de la page</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="ouvrir dans un nouvel onglet" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
+---
+title: 'Connecteur Drupal 8-Brightcove : Intégration de contenu'
+parent: Drupal —
 <article class="bcls-article">
-  <h1>Connecteur Drupal 8-Brightcove : Intégrer du contenu </h1>
+  <h1>Connecteur Drupal 8-Brightcove : Intégration de contenu </h1>
   <summary></summary>
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
@@ -438,226 +15,71 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="set-up">Mise en place</h2>
-    <p>Accédez à la section <em>Extend </em>et recherchez le module <em>Entity Browser</em>.  Cochez la case, puis cliquez sur Installer. Le moyen le plus simple de localiser le module est de commencer à taper le nom dans la barre de recherche. Installez également les modules <em>Chaos Tools, Entity Browser IEF, Intégrer, Entity Embed</em> et <em>CKEditor</em> </p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Sélectionnez le navigateur d'entité et cliquez sur Installer." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/extend-entity-embed.png"/></figure>
+    <p>Naviguez vers le <em>Se déployer </em>rubrique et trouvez le <em>Navigateur d'entités</em> module. Cochez la case, puis cliquez sur Installer. Le moyen le plus simple de localiser le module est de commencer à taper le nom dans la barre de recherche. Installez également le <em>Chaos Tools, Entity Browser IEF, Embed, Entity Embed,</em> et <em>CKEditor</em> modules</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Select entity browser and click install." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/extend-entity-embed.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="brightcove-selection-widget">Widget de sélection Brightcove</h2>
-    <p>Configurez une vue personnalisée pour parcourir les vidéos. Cliquez sur l'onglet <em>Structure </em>, puis sur <em>Vues</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Accédez à la page des vues." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/structure-views.png"/></figure>
-    <p>Cliquez sur <em>Ajouter une vue</em>.&nbsp;Cela vous mènera au <em>Ajouter&nbsp;Vue</em>&nbsp;page. Donnez un nom à la vue, puis sélectionnez <em>Brightcove Video</em>dans le&nbsp;menu Paramètres d'affichage. Cliquez sur <em>Enregistrer et modifier</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Vue vidéo Brightcove sélectionnée." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-view-completed.png"/></figure>
-    <p>Ensuite, cliquez sur le <em>+Ajouter</em>&nbsp;dans la section <em>Affichages </em>et sélectionnez <em>Entity Browser</em>.&nbsp;Puis appuyez sur <em>Enregistrer</em>.</p>
-    <p>Pour le format, choisissez <em>Table</em>en&nbsp;cliquant sur l'option <em>par défaut </em>et en sélectionnant <em>Table</em>.</p>
-    <p>Maintenant, il est temps d'ajouter des champs pour le navigateur. Assurez-vous qu'il indique <i>Entity Browser</i> dans le coin. Vous devez y être automatiquement basculé après l'avoir sélectionné.</p>
-    <p>Pour ajouter des champs, cliquez sur le <em>Ajouter</em>&nbsp;bouton à côté du <em>Des champs</em>&nbsp;entête. Les champs peuvent être en grande partie une question de goût, mais assurez-vous d'avoir la <em>vidéo Brightcove : Formulaire de sélection groupée du navigateur d'entités</em>&nbsp;en option pour que les vidéos puissent être sélectionnées. Le nom et la vignette sont également bons à avoir. Le seul champ qu'il est très bon de <i>ne pas</i> avoir est celui qu'ils ont mis par défaut : l' <em>Entité Rendu</em>.&nbsp;L' entité rendue est la vidéo complète et toutes les méta-informations, et l'inclure dans le navigateur de l'entité. Cela le rend encombrant et moins utile pour parcourir rapidement des vidéos.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Sélections de champs suggérées, plus où cliquer pour que cela se produise." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/entity-browser-fields-selections.png"/></figure>
-    <p>N'oubliez pas de cliquer sur <em>Enregistrer</em>.</p>
+    <p>Configurez une vue personnalisée pour parcourir les vidéos. Clique sur le <em>Structure </em>onglet, puis cliquez sur <em>Vues</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Navigate to the views page." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/structure-views.png" /></figure>
+    <p>Cliquez sur <em>Ajouter une vue</em>.&nbsp;Cela vous mènera au <em>Ajouter&nbsp;Vue</em>&nbsp;page. Donnez un nom à la vue, puis sélectionnez <em>Vidéo de Brightcove</em>&nbsp;dans le menu Paramètres d'affichage. Cliquez sur <em>Enregistrer et modifier</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Brightcove video view selected." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-view-completed.png" /></figure>
+    <p>Ensuite, cliquez sur le <em>+Ajouter</em>&nbsp;dans le <em>Affiche </em>rubrique et sélectionnez <em>Navigateur d'entités</em>.&nbsp;Puis frappe <em>Enregistrer</em>.</p>
+    <p>Pour le format, choisissez <em>Table</em>&nbsp;en cliquant sur le <em>défaut </em>option et en sélectionnant <em>Table</em>.</p>
+    <p>Maintenant, il est temps d'ajouter des champs pour le navigateur. Assurez-vous qu'il dit <i>Navigateur d'entités</i> au coin. Vous devez y être automatiquement basculé après l'avoir sélectionné.</p>
+    <p>Pour ajouter des champs, cliquez sur le <em>Ajouter</em>&nbsp;bouton à côté du <em>Champs</em>&nbsp;entête. Les champs peuvent être en grande partie une question de goût, mais assurez-vous d'avoir le <em>Vidéo Brightcove : Formulaire de sélection groupée du navigateur d'entités</em>&nbsp;en option afin que les vidéos puissent être sélectionnées. Le nom et la vignette sont également bons à avoir. Le seul domaine où il est très bon <i>pas</i> ont est celui qu'ils ont mis en place par défaut : le <em>Entité rendue</em>.&nbsp;L'entité rendue est la vidéo complète et toutes les méta-informations, et l'inclut dans le navigateur d'entités. Cela le rend encombrant et moins utile pour parcourir rapidement des vidéos.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Suggested field selections, plus where to click to make it happen." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/entity-browser-fields-selections.png" /></figure>
+    <p>N'oubliez pas de frapper <em>Enregistrer</em>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="create-entity-browser">Créer un navigateur d'entités</h2>
-    <p>Pour configurer le navigateur d'entités, accédez à <em>Configuration </em>et sélectionnez l'option <em>Entity Browser</em>. </p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Accédez à la page Entity Browsers." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-entity-browsers.png"/></figure>
-    <p>Sur la page résultante, cliquez sur <em>Ajouter un navigateur d'entités</em>&nbsp;au sommet. Sur la page résultante, ajoutez une étiquette pour votre nouveau widget, puis effectuez vos sélections. Sélectionnez <em>iFrame</em> pour le plugin Display, <em>Onglets</em> pour le plugin de sélection Widget et <em>Aucun affichage de sélection</em> pour le plugin d'affichage Sélection.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Accédez à la page Entity Browsers." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/entity-browser-iframe-tabs.png"/></figure>
-    <p>Frapper suivant. Les pages suivantes ont soit des options par défaut fines, soit aucune option. Continuez jusqu'à ce que vous atteigniez l'écran final, qui a le mot <em>Terminer</em>&nbsp;en bas au lieu de suivant. Sélectionnez <em>Afficher </em>dans le <em>menu Ajouter un plugin widget</em>, puis donnez une étiquette à votre widget. Dans <em>Afficher l'affichage</em>, sélectionnez <em>Navigateur vidéo Brightcove : Navigateur d'entité</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Accédez à la page Entity Browsers." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widget-view-settings.png"/></figure>
+    <p>Pour configurer le navigateur d'entités, accédez à <em>Configuration </em>et sélectionnez le <em>Navigateur d'entités</em> option.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Navigate to the Entity Browsers page." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-entity-browsers.png" /></figure>
+    <p>Sur la page résultante, cliquez sur <em>Ajouter un navigateur d'entités</em>&nbsp;au sommet. Sur la page résultante, ajoutez une étiquette pour votre nouveau widget, puis effectuez vos sélections. Sélectionner <em>iFrame</em> pour le plugin Display, <em>Onglets</em> pour le plugin de sélecteur de widget, et <em>Pas d'affichage de sélection</em> pour le plugin d'affichage de sélection.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Navigate to the Entity Browsers page." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/entity-browser-iframe-tabs.png" /></figure>
+    <p>Frapper suivant. Les pages suivantes ont soit des options par défaut fines, soit aucune option. Continuez jusqu'à ce que vous atteigniez l'écran final, qui a le mot <em>Finir</em>&nbsp;en bas au lieu du suivant. Sélectionner <em>Vue </em>dans le <em>Ajouter un menu de plugin de widget</em>, puis attribuez une étiquette à votre widget. Dans <em>Afficher l'affichage</em>, sélectionnez <em>Navigateur vidéo Brightcove : Navigateur d'entité</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Navigate to the Entity Browsers page." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widget-view-settings.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="add-upload-tab">Ajouter un onglet Charger</h2>
     <p>Clique le <em>Ajouter un plugin de widget</em>&nbsp;menu déroulant à nouveau et sélectionnez <em>Formulaire d'entité.</em></p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Sélectionnez Ajouter l'option de formulaire d'entité de plugin widget." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widgets-entity-form.png"/></figure>
-    <p>Cela ajoutera un formulaire sous le premier formulaire. Ajoutez une étiquette et sélectionnez <em>Brightcove Video</em>&nbsp;pour le <em>type Entité </em>et <em>Bundle</em>. Hit <em>Finish</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="remplir les options de formulaire." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widget-entity-form-filled-out.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Select add widget plugin entity form option." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widgets-entity-form.png" /></figure>
+    <p>Cela ajoutera un formulaire sous le premier formulaire. Ajoutez une étiquette et sélectionnez <em>Vidéo de Brightcove</em>&nbsp;pour le <em>Type d'entité </em>et <em>Empaqueter</em>. Frappé <em>Finir</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="fill out form options." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/widget-entity-form-filled-out.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="add-brightcove-button">Bouton Ajouter Brightcove</h2>
-    <p>Accédez à <em>Configuration</em>. dans le <em>Création de contenu</em>&nbsp;section, sélectionnez <em>Boutons intégrés de l'éditeur de texte</em>.&nbsp;</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Boutons d'intégration de l'éditeur de texte" width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-text-editor-embed-buttons.png"/></figure>
-    <p>Cliquez sur <em>Ajouter le bouton Incorporer</em> . Donnez une étiquette à votre bouton, sélectionnez <em>Entité</em>&nbsp;pour le type d'intégration et <em>Brightcove Video</em>&nbsp;pour le type d'entité. Votre navigateur Entity doit être&nbsp;le navigateur que vous avez déjà créé pour le contenu Brightcove.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="remplir les options de formulaire." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-embed-button.png"/></figure>
+    <p>Aller vers <em>Configuration</em>. Dans le <em>Création de contenu</em>&nbsp;rubrique, sélectionnez <em>Boutons d'intégration de l'éditeur de texte</em>.&nbsp;</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Text editor embed buttons" width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-text-editor-embed-buttons.png" /></figure>
+    <p>Cliquez sur <em>Ajouter une intégration</em> bouton. Donnez une étiquette à votre bouton, sélectionnez <em>Entité</em>&nbsp;pour le type encastré et <em>Vidéo de Brightcove</em>&nbsp;pour le type d'entité. Votre navigateur Entity doit être&nbsp;le navigateur que vous avez déjà créé pour le contenu Brightcove.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="fill out form options." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-embed-button.png" /></figure>
     <p>Si vous voulez une icône, vous devrez la télécharger ici, sinon il ne s'agit que de l'icône du bouton par défaut. Voici une petite icône de logo Brightcove que vous pouvez utiliser.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="J'ai fait cette petite icône pour que vous n'ayez pas à le faire." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/bclogo-small.png"/></figure>
-    <p>Retournez à <em>Configuration </em>et choisissez <em>Formats de texte et éditeurs</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Formats de texte et éditeurs." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-text-formats-and-editors.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="I made this tiny icon so you don't have to." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/bclogo-small.png" /></figure>
+    <p>Revenir à <em>Configuration </em>et choisissez <em>Formats de texte et éditeurs</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Text formats and editors." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/configuration-text-formats-and-editors.png" /></figure>
     <p>Choisissez de configurer le format de texte à l'endroit où vous souhaitez ajouter le bouton d'intégration de l'entité. Gardez à l'esprit que lors de la publication, vous devrez vous assurer d'utiliser ce format de texte. Vous pouvez répéter le processus pour ajouter le bouton à plusieurs formats.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="J'ai utilisé basique, mais n'importe quel travail." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/text-formats-and-editors-configure.png"/></figure>
-    <p>Assurez-vous que <em>CKEditor</em>&nbsp;est sélectionné pour l' <em>éditeur de texte</em>. Votre nouveau bouton Brightcove apparaît dans les <em>boutons Disponibles</em> et peut être glissé vers la <em>barre d'outils Actif</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="remplir les options de formulaire." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/toolbar-button-configuration.png"/></figure>
-    <p>Assurez-vous que <em>l'option Afficher les entités incorporées</em>&nbsp;est sélectionnée, puis cliquez sur <em>Enregistrer la configuration</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="I used basic, but any work." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/text-formats-and-editors-configure.png" /></figure>
+    <p>S'assurer <em>CKeditor</em>&nbsp;est sélectionné pour le <em>Éditeur de texte</em>. Votre nouveau bouton Brightcove sera répertorié dans le <em>Boutons disponibles</em>, et peut être déplacé vers le <em>Barre d'outils active</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="fill out form options." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/toolbar-button-configuration.png" /></figure>
+    <p>S'assurer <em>Afficher les entités incorporées</em>&nbsp;est sélectionné et cliquez sur <em>Enregistrer la configuration</em>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="add-brightcove-view">Ajouter une vue Brightcove</h2>
-    <p>Pour que les vidéos s'affichent correctement, vous devez d'abord créer une nouvelle vue Brighcove. Pour ce faire, accédez à la page <em>Structure </em>et sélectionnez <em>Mode d'affichage</em>. Cliquez ensuite sur <em>Mode d'affichage</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Structure puis afficher les modes." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/structure-display-modes.png"/></figure>
-    <p>Cliquez sur <em>Ajouter une nouvelle vue</em>. Choisissez <em>Brightcove Video</em>&nbsp;comme type d'entité en mode d'affichage. Donnez une étiquette à votre nouvelle vue et appuyez sur <em>Enregistrer</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Choisissez le type d'entité mode affichage." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/choose-view-mode-entity-type.png"/></figure>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Mode de vue Brightcove." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-new-brightcove-view-mode.png"/></figure>
+    <p>Pour que les vidéos s'affichent correctement, vous devez d'abord créer une nouvelle vue Brighcove. Pour cela, rendez-vous sur le <em>Structure </em>page et sélectionnez <em>Modes d'affichage</em>. Cliquez ensuite sur <em>Modes d'affichage</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Structure then display modes." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/structure-display-modes.png" /></figure>
+    <p>Cliquez sur <em>Ajouter une nouvelle vue</em>. Choisir <em>Vidéo de Brightcove</em>&nbsp;comme type d'entité du mode d'affichage. Donnez une étiquette à votre nouvelle vue et appuyez sur <em>Enregistrer</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Choose view mode entity type." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/choose-view-mode-entity-type.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Brightcove view mode." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/add-new-brightcove-view-mode.png" /></figure>
     <p>Vous devriez maintenant voir une vue répertoriée sous Brightcove Video.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Vue vidéo Brightcove." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/brightcove-video-view-mode-added.png"/></figure>
-    <p>Ensuite, activez le nouveau mode d'affichage. Accédez aux <em>paramètres vidéo Brightcove</em> dans le menu <em>Structure </em> puis sélectionnez l' <em>onglet Gérer l'affichage</em>. En bas, il y a un <em>Paramètres d'affichage personnalisés</em>&nbsp;boîte. Sélectionnez votre nouvelle vue personnalisée et cliquez sur <em>Enregistrer</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="affichage vidéo brightcove personnalisé activé." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/custom-display-settings-brightcove.png"/></figure>
-    <p>Par défaut, la vue comporte beaucoup de métadonnées inutiles affichées avec la vidéo. En regard du lien Affichage <i>par défaut</i> , cliquez sur le lien avec le nom de votre mode d'affichage. Désactivez toutes les métadonnées que vous ne souhaitez pas publier dans votre publication et activez toutes les métadonnées que vous souhaitez conserver. N'oublie pas de frapper Sauver.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Cela créera une vue beaucoup plus rationalisée." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/manage-display-brightcove-video.png"/></figure>
-    <p>Enfin, effacez votre cache en accédant à <em>Performances </em>dans le menu <em>Configuration </em>, puis en cliquant sur <em>Effacer tous les caches</em>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="effacer les caches." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/clear-all-caches.png"/></figure>
-    <p>Maintenant, vous devriez être en mesure de sélectionner <em>Brightcove Video</em> comme vue à afficher !</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Intégrer en tant que vidéo" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/embed-as-video.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Brightcove video view." src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/brightcove-video-view-mode-added.png" /></figure>
+    <p>Ensuite, activez le nouveau mode d'affichage. Aller à <em>Paramètres vidéo Brightcove</em> dans le <em>Structure </em>menu, puis sélectionnez le <em>Onglet Gérer l'affichage</em>. En bas, il y a un <em>Paramètres d'affichage personnalisés</em>&nbsp;boîte. Sélectionnez votre nouvelle vue personnalisée et appuyez sur <em>Enregistrer</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="custom brightcove video view enabled." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/custom-display-settings-brightcove.png" /></figure>
+    <p>Par défaut, la vue comporte beaucoup de métadonnées inutiles affichées avec la vidéo. À côté de la <i>Par défaut</i> lien d'affichage, cliquez sur le lien portant le nom de votre mode d'affichage. Désactivez toutes les métadonnées que vous ne souhaitez pas publier dans votre publication et activez toutes les métadonnées que vous souhaitez conserver. N'oublie pas de frapper Sauver.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="This will create a much more streamlined view." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/manage-display-brightcove-video.png" /></figure>
+    <p>Enfin, videz votre cache en accédant à <em>Performances </em>dans le <em>Configuration </em>menu et en cliquant <em>Vider tous les caches</em>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="clear caches." width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/clear-all-caches.png" /></figure>
+    <p>Vous devriez maintenant pouvoir sélectionner <em>Vidéo de Brightcove</em> comme la vue à afficher !</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Embed as video" src="//learning-services-media.brightcove.com/doc-assets/node/18631-drupal-8-brightcove-connector-embedding-content/embed-as-video.png" /></figure>
   </section>
   <p>Découvrez également la <a href="/drupal/drupal-8-brightcove-connector-content-management.html">gestion de contenu avec Drupal.</a></p>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenu de la page</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Assistance Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">État du système</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contacter le support</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentation</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formation</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Cours en ligne</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">S' inscrire à un cours</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Université de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactez-nous</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove, Inc. Tous droits réservés.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">Confidentialité</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Termes et conditions</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

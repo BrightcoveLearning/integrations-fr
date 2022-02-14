@@ -1,0 +1,138 @@
+---
+title: Description de l'installation du connecteur pour les équipes : Cette rubrique couvre l'installation et la configuration de Brightcove Video Connector pour Microsoft Teams.
+parent: Home
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">Introduction</h2>
+		<p>Le connecteur vidéo Brightcove pour Microsoft Teams (connecteur vidéo) peut être installé de deux manières : Manuellement, en tant qu'application personnalisée Teams, ou (bientôt à venir) via l'App Store.</p>
+		<h3>Conditions préalables</h3>
+		<ul>
+			<li>Équipes Microsoft</li>
+			<li><strong>Propriétaire</strong> autorisations sur l'emplacement Teams sur lequel vous installez le connecteur vidéo</li>
+		</ul>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Manual_installation">Installation manuelle (application personnalisée)</h2>
+		<p>Pour installer le connecteur vidéo manuellement (installation d'application personnalisée dans Teams), suivez les étapes ci-dessous.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>Téléchargez la dernière version du package manifeste du connecteur vidéo à partir du référentiel GitHub ici : <a href="https://github.com/Oceanswave/brightcove-teams-connector/releases">Versions · Oceanswave/brightcove-teams-connector (github.com)</a> et enregistrez-le sur votre ordinateur local.</li>
+			<li>Ouvrez Microsoft Teams et ouvrez l'équipe dans laquelle vous souhaitez installer le connecteur.</li>
+			<li>
+				Sélectionnez le <strong>Plus d'options</strong> menu:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/more-options.png" alt="More Options for Team">
+					<figcaption class="bcls-caption--image">Plus d'options pour l'équipe</figcaption>
+				</figure>
+			</li>
+			<li>
+				Cliquez sur l'élément de menu « Gérer l'équipe » (<strong>Remarque</strong> : vous devez disposer des autorisations de propriétaire sur cet emplacement Teams pour voir l'élément de menu mentionné — voir la section Prérequis ci-dessus) :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/manage-team.png" alt="Manage Team">
+					<figcaption class="bcls-caption--image">Gérer l'équipe</figcaption>
+				</figure>
+			</li>
+			<li>
+				Sélectionnez le <strong>applications</strong> languette:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-apps-tab.png" alt="Team Apps Tab">
+					<figcaption class="bcls-caption--image">Onglet Applications d'équipe</figcaption>
+				</figure>
+			</li>
+			<li>
+				Clique le <strong>Télécharger une application personnalisée</strong> lien en bas de la page des applications :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/upload-custom-app.png" alt="Upload Custom App Link">
+					<figcaption class="bcls-caption--image">Télécharger un lien d'application personnalisé</figcaption>
+				</figure>
+			</li>
+			<li>
+				Accédez à l'emplacement du manifeste du connecteur (que vous avez précédemment téléchargé), sélectionnez-le et cliquez sur le bouton <strong>Ouvert</strong> bouton:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-brightcovevideoconnect.png" alt="Upload the Connector">
+					<figcaption class="bcls-caption--image">Télécharger le connecteur</figcaption>
+				</figure>
+			</li>
+			<li>
+				Cliquez sur <strong>Ajouter</strong> dans la fenêtre modale Brightcove Video Connect qui s'affiche :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-brightcovevideoconnect.png" alt="Add Brightcove Video Connect">
+					<figcaption class="bcls-caption--image">Ajouter la connexion vidéo Brightcove</figcaption>
+				</figure>
+			</li>
+			<li>
+				L'application Video Connector doit être installée et vous devriez maintenant la voir dans la liste des applications disponibles pour l'équipe, comme indiqué ci-dessous :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/installed-app.png" alt="Available Team Apps">
+					<figcaption class="bcls-caption--image">Applications d'équipe disponibles</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<p>Nous aborderons la configuration du connecteur dans une section ultérieure et son utilisation dans <a href="/teams/using.html">Utilisation du connecteur pour Microsoft Teams</a></p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Install_from_Microsoft_App_Store">Installer depuis Microsoft App Store</h2>
+		<p>Cette capacité est actuellement en cours de provisionnement et la documentation sera mise à jour une fois en place.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Add_Brightcove_Media_Asset_Manager_to_Teams">Ajouter Brightcove Media Asset Manager aux équipes</h2>
+		<p>Vous devez d'abord installer le connecteur vidéo sur l'équipe à laquelle vous souhaitez ajouter le gestionnaire de médias. Suivez le guide d'installation comme indiqué dans les sections précédentes de la documentation si vous ne l'avez pas déjà fait.</p>
+		<p>Nous allons maintenant procéder à la configuration.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>Dans Microsoft Teams, ouvrez l'équipe sur laquelle l'application de connecteur vidéo est déjà installée.</li>
+			<li>Ouvrez le canal d'équipe sur lequel vous souhaitez installer le gestionnaire de médias.</li>
+			<li>
+				Clique le <strong>Ajouter un onglet</strong> option de menu :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-tab-option.png" alt="Add Tab Options for Team Channel">
+					<figcaption class="bcls-caption--image">Ajouter des options d'onglet pour le canal d'équipe</figcaption>
+				</figure>
+			</li>
+			<li>
+				Sélectionnez le <strong>Connexion vidéo Brightcove</strong> application de la <strong>Ajouter un onglet</strong> fenêtre modale :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-tab-modal.png" alt="Add a Tab Modal">
+					<figcaption class="bcls-caption--image">Ajouter un onglet modal</figcaption>
+				</figure>
+			</li>
+			<li>Dans le <strong>Configuration</strong> fenêtre modale, sous <strong>Compte Brightcove</strong> Cliquez sur <strong>Nouveau</strong> pour ajouter un compte au connecteur (ou sélectionnez-en un dans la liste déroulante si vous avez déjà utilisé le connecteur sur une autre équipe dans cet environnement Teams auparavant).</li>
+			<li>
+				Si vous ajoutez un nouveau compte Brightcove (si vous avez cliqué sur <strong>Nouveau</strong> à l'étape précédente) remplissez le formulaire avec votre identifiant de compte Brightcove, votre identifiant de clé d'accès API (ID client) et votre clé d'accès secrète API (secret client) comme indiqué. Cliquez sur <strong>Enregistrer le compte et continuer</strong>.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-account-info.png" alt="Brightcove Account Information">
+					<figcaption class="bcls-caption--image">Informations sur le compte Brightcove</figcaption>
+				</figure>
+				<p>Pour plus d'informations sur la façon d'obtenir les informations d'identification du client, consultez <a href="https://apis.support.brightcove.com/getting-started/authentication-brightcove-api-requests.html">Authentification pour les demandes d'API</a>. Les identifiants nécessitent au moins ces autorisations pour les API CMS, Dynamic Ingest et Ingest Profiles :</p>
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/api-permissions.png" alt="Minimum API Permissions">
+					<figcaption class="bcls-caption--image">Autorisations API minimales</figcaption>
+				</figure>
+			</li>
+			<li>
+				Dans la fenêtre de configuration, sous <strong>Mode Onglet Connecteur</strong> sélectionnez le <strong>Gestionnaire d'actifs Brightcove</strong> dans les options déroulantes :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-brightcove-asset-manager.png" alt="Connector Tab Mode">
+					<figcaption class="bcls-caption--image">Mode Onglet Connecteur</figcaption>
+				</figure>
+			</li>
+			<li>
+				Cliquez sur <strong>Enregistrer</strong>:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/save-brightcove-connector-tab.png" alt="Save Brightcove Connector Configuration">
+					<figcaption class="bcls-caption--image">Enregistrer la configuration du connecteur Brightcove</figcaption>
+				</figure>
+			</li>
+			<li>
+				Le Brightcove Asset Manager devrait maintenant apparaître sur votre onglet nouvellement créé, comme indiqué ci-dessous :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/asset-manager-tab-appears.png" alt="Video Connector Configured">
+					<figcaption class="bcls-caption--image">Connecteur vidéo configuré</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<p>Le connecteur vidéo Brightcove est maintenant installé et configuré. Pour utiliser le connecteur pour gérer les ressources multimédias, consultez <a href="/teams/using.html">Utilisation du connecteur pour Microsoft Teams</a>.</p>
+	</section>
+</article>
